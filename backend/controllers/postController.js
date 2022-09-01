@@ -5,7 +5,7 @@ exports.createPost = (req, res, next) => {
   const postObject = JSON.parse(req.body.post)
   const post = new Post({
     userId: postObject.userId,
-    name: postObject.name,
+    title: postObject.title,
     description: postObject.description,
     imageUrl: `${req.protocol}://${req.get("host")}/images/${req.file.filename}`,
     likes : 0,
