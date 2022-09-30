@@ -6,11 +6,12 @@ passwordSchema
 .is().max(60)
 .has().uppercase()                              
 .has().lowercase()                              
-.has().digits(2)                                
+.has().digits(1)                                
 .has().not().spaces()                           
 .is().not().oneOf(['Passw0rd', 'Password123']);
 
 module.exports = (req,res,next) => {
+    console.log(req.body.password);
     if(passwordSchema.validate(req.body.password)){
         next()
     }else{
