@@ -1,11 +1,13 @@
-import {useRef, useState} from 'react'
+import {useState} from 'react'
 import axios from "axios";
 import Header from "../components/Header"
+import Footer from "../components/Footer"
 import { useNavigate, Link } from 'react-router-dom';
+import "../sass/main.css"
+import 'typeface-lato';
+
 
 const Register = () => {
-    const mailRef = useRef();
-    const errRef = useRef();
     const [mail, setMail] = useState("");
     const [validMail, setValidMail] = useState(false);
     const [pwd, setPwd] = useState("");
@@ -48,7 +50,6 @@ const Register = () => {
           } else {
             setErrMsg("Registration Failed");
           }
-          errRef.current.focus();
         });
       }
       
@@ -57,77 +58,83 @@ const Register = () => {
     return (
       <>
         <Header/>
-        <section>
-          <p
-            ref={errRef}
-            className={errMsg ? "errmsg" : "offscreen"}
-            aria-live="assertive"
-          >
-            {errMsg}
-          </p>
-          <h1>S'inscrire</h1>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="usermail">
-              Adresse mail:
-            </label>
-            <input
-              type="mail"
-              id="usermail"
-              ref={mailRef}
-              autoComplete="off"
-              onChange={(e) => setMail(e.target.value)}
-              value={mail}
-              required
-              aria-invalid={validMail ? "false" : "true"}
-              aria-describedby="uidnote"
-            />
-            <p>
-              4 à 24 caractères.
-              <br />
-              Doit commencer par une lettre.
-              <br />
-              Lettres, nombres, et tirets autorisés.
-            </p>
-              <label htmlFor="password">
-              Mot de passe:
-            </label>
-            <input
-              type="password"
-              id="password"
-              onChange={(e) => setPwd(e.target.value)}
-              value={pwd}
-              required
-              aria-invalid={validPwd ? "false" : "true"}
-              aria-describedby="pwdnote"
-            />
-            <p
-              id="pwdnote"
-            >
-            8 à 24 caractères.
-              <br />
-              Doit contenir des majuscules et des miniscules, un nombre et un caractère spécial.
-              <br />
-              Caractères authorisés:{" "}
-              <span aria-label="exclamation mark">
-                !
-              </span>{" "}
-              <span aria-label="at symbol">@</span>{" "}
-              <span aria-label="hashtag">#</span>{" "}
-              <span aria-label="dollar sign">$</span>{" "}
-              <span aria-label="percent">%</span>
-            </p>
-            <button>
-              S'inscrire
-            </button>
-          </form>
-          <p>
-            Déjà inscrit?
-            <br />
-            <span className="line">
-            <Link to="/login">Se connecter</Link>
-            </span>
-          </p>
-        </section>
+
+          <div className='register_background'>
+            <div className='register_container'>
+
+              <h1>S'inscrire</h1>
+                          
+              <section>
+                <form onSubmit={handleSubmit} className='register_form'>
+                  <label htmlFor="usermail" className='register_mail'>
+                    <i className='bi bi-envelope-fill'></i> Adresse mail :
+                  </label>
+                  <div className='register_mail-input'>
+                    <input
+                      type="mail"
+                      id="usermail"
+                      autoComplete="on"
+                      onChange={(e) => setMail(e.target.value)}
+                      value={mail}
+                      required
+                      aria-invalid={validMail ? "false" : "true"}
+                    />
+                    <div className='register_mail-requirements'>
+                      <ul>
+                        <li>
+                          4 à 24 caractères.
+                        </li>
+                        <li>
+                          Doit commencer par une lettre.
+                        </li>
+                        <li>
+                          Lettres, nombres, et tirets autorisés.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <label htmlFor="password" className='register_password'>
+                    <i className='bi bi-key-fill'></i> Mot de passe :
+                  </label>
+                  <div className='register_password-input'>
+                    <input
+                      type="password"
+                      id="password"
+                      onChange={(e) => setPwd(e.target.value)}
+                      value={pwd}
+                      required
+                      aria-invalid={validPwd ? "false" : "true"}
+                    />
+                    <div className='register_password-requirements'>
+                      <ul>
+                        <li>
+                          8 à 24 caractères.
+                        </li>
+                        <li>
+                          Doit contenir des majuscules, des miniscules, un nombre et un caractère spécial.
+                        </li>
+                        <li>
+                          Caractères authorisés: @$%#!
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <button className='register_button-register'>
+                    S'inscrire
+                  </button>
+                </form>
+                <div className='register_button-login-container'>
+                  <p>
+                    Déjà inscrit?
+                  </p>
+                  <button className='register_button-login'>
+                    <Link to="/login"> Se connecter </Link>
+                  </button>
+                </div>
+              </section>
+            </div>
+          </div>
+          <Footer/>
       </>
     );
   };

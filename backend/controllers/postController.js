@@ -2,7 +2,8 @@ const Post = require('../models/Post');
 
 exports.createPost = (req, res, next) => {
   console.log(req.body);
-  const postObject = JSON.parse(req.body.post)
+  console.log(req.file)
+  const postObject = req.body;
   const post = new Post({
     userId: postObject.userId,
     title: postObject.title,
@@ -29,7 +30,7 @@ exports.createPost = (req, res, next) => {
 
 exports.getOnePost = (req, res, next) => {
     Post.findOne({
-      _id: req.params.id
+      id: req.params.id
     }).then(
       (post) => {
         res.status(200).json(post);
@@ -42,11 +43,14 @@ exports.getOnePost = (req, res, next) => {
   };
   
   exports.modifyPost = (req, res, next) => {
+    console.log(req.body)
+    const body = req.body
     const postObject = req.file ?
     {
-      ...JSON.parse(req.body.post),
+      ...body,
       imageUrl: `${req.protocol}://${req.get("host")}/images/${req.file.filename}`,
     }: {...req.body}
+    console.log(postObject)
     Post.updateOne({_id: req.params.id}, postObject).then(
       () => {
         res.status(201).json({

@@ -1,0 +1,79 @@
+.login_background {
+    background-image: url("../pages/background2.jpg");
+    margin-top: 5px;
+    padding-top: 20px;
+    padding-bottom: 90px;
+}
+
+.login-container {
+    margin: 0 auto;
+    padding-bottom: 50px;
+    box-shadow: 1px 3px 15px #d1d1d1;
+    width: 330px;
+    border-radius: 20px;
+    background-color: white;
+        h1{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color:  #FD2D01;
+            font-size: xx-large;
+            padding-top: 40px;
+            padding-bottom: 5px;
+        }
+        .login_form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-size: large;
+            padding-bottom: 20px;
+                i {
+                    margin-right: 10px;
+                }
+                .login_button-login {
+                    font-size: large;
+                    color: white;
+                    background-color: black;
+                    border-radius: 20px;
+                    width: 140px;
+                    height: 35px;
+                    margin-top: 10px;
+                        &:hover{
+                            background-color: #FD2D01;
+                            cursor: pointer;
+                        }
+                }
+        }
+        .login_button-register-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: large;
+                p {
+                    margin-bottom: 10px;
+                }
+                .login_button-register {
+                    background-color: black;
+                    border-radius: 20px;
+                    width: 140px;
+                    height: 35px;
+                        &:hover{
+                            background-color: #FD2D01;
+                        }
+                        & a{
+                            text-decoration: none;
+                            font-size: large;
+                            color: white;
+                        }
+                }
+
+        }
+}            
+
+
+
+
+

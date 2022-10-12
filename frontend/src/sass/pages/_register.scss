@@ -1,0 +1,90 @@
+.register_background {
+    background-image: url("../pages/background2.jpg");
+    margin-top: 5px;
+    padding-top: 20px;
+    padding-bottom: 90px;
+}
+
+.register_container {
+    padding-bottom: 50px;
+    box-shadow: 1px 3px 15px #d1d1d1;
+    border-radius: 20px;
+    width: 430px;
+    margin: 0 auto;
+    background-color: white;
+        h1{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color:  #FD2D01;
+            font-size: xx-large;
+            padding-top: 40px;
+            padding-bottom: 5px;
+        }
+        .register_form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-size: large;
+            padding-bottom: 20px;
+                i{
+                    margin-right: 10px;
+                }
+                .register_mail-input {
+                    display: flex;
+                    flex-direction: column;
+                    width: 170px;
+                }
+                .register_password-input {
+                    display: flex;
+                    flex-direction: column;
+                    width: 170px;
+                }
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    width: 280px;
+                    margin-left: -50px;
+                    font-size: small;
+                }
+                .register_button-register {
+                    font-size: large;
+                    color: white;
+                    background-color: black;
+                    border-radius: 20px;
+                    width: 140px;
+                    height: 35px;
+                        &:hover{
+                            background-color: #FD2D01;
+                            cursor: pointer;
+                        }
+                }
+        }
+        .register_button-login-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: large;
+                p {
+                    margin-bottom: 10px;
+                }
+                .register_button-login {
+                    background-color: black;
+                    border-radius: 20px;
+                    width: 140px;
+                    height: 35px;
+                        &:hover{
+                            background-color: #FD2D01;
+                        }
+                        & a{
+                            text-decoration: none;
+                            font-size: large;
+                            color: white;
+                        }
+                }
+
+        }
+}

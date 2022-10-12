@@ -1,0 +1,382 @@
+* {
+  font-family: lato;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 1px 2px 5px #d1d1d1;
+  padding-bottom: 10px;
+  background-color: white;
+}
+nav img {
+  height: 65px;
+  width: 350px;
+  margin-left: 35px;
+  margin-top: 15px;
+}
+nav .header_links {
+  margin-top: 15px;
+}
+nav .header_links a {
+  color: black;
+  text-decoration: none;
+  font-size: large;
+  margin-right: 65px;
+}
+nav .header_links a:hover {
+  color: #FD2D01;
+}
+nav .header_links i {
+  margin-right: 6px;
+}
+
+.footer_container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: solid 3px #d1d1d1;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  height: 80px;
+  margin-bottom: 10px;
+}
+.footer_container img {
+  height: 40px;
+  width: 230px;
+  margin-right: 450px;
+  margin-top: 10px;
+}
+.footer_container ul {
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+}
+.footer_container ul li {
+  color: black;
+  list-style: none;
+  font-size: medium;
+  cursor: pointer;
+}
+.footer_container ul li:hover {
+  color: #FD2D01;
+}
+.footer_container ul li a {
+  text-decoration: none;
+  color: black;
+}
+.footer_container ul li a:hover {
+  color: #FD2D01;
+}
+.footer_container ul i {
+  margin-right: 6px;
+}
+
+.home_page {
+  background-image: url("../pages/background2.jpg");
+}
+.home_page h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FD2D01;
+  font-size: xx-large;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  margin-top: 7px;
+}
+.home_page .home_posts-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  padding-bottom: 90px;
+}
+.home_page .home_posts-container .home_one-post {
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  box-shadow: 7px 7px 10px 6px #d1d1d1;
+  border-radius: 15px;
+  width: 760px;
+  height: 540px;
+  padding-left: 40px;
+  padding-top: 10px;
+}
+.home_page .home_posts-container .home_one-post .home_postdate {
+  display: flex;
+  justify-content: right;
+  padding-right: 40px;
+  padding-top: 10px;
+  font-size: small;
+}
+.home_page .home_posts-container .home_one-post .home_postdate i {
+  margin-right: 6px;
+}
+.home_page .home_posts-container .home_one-post h5 {
+  padding-bottom: 30px;
+  border: 3px dotted #FFD7D7;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  width: 720px;
+}
+.home_page .home_posts-container .home_one-post h2 {
+  color: #FD2D01;
+  padding-top: 10px;
+}
+.home_page .home_posts-container .home_one-post p {
+  font-size: medium;
+  padding-top: 10px;
+}
+.home_page .home_posts-container .home_one-post img {
+  display: block;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: auto;
+  width: auto;
+  height: 200px;
+  padding-top: 25px;
+  padding-bottom: 30px;
+}
+.home_page .home_posts-container .home_one-post .home_modify {
+  text-decoration: none;
+  font-style: normal;
+  color: black;
+}
+
+.login_background {
+  background-image: url("../pages/background2.jpg");
+  margin-top: 5px;
+  padding-top: 20px;
+  padding-bottom: 90px;
+}
+
+.login-container {
+  margin: 0 auto;
+  padding-bottom: 50px;
+  box-shadow: 1px 3px 15px #d1d1d1;
+  width: 330px;
+  border-radius: 20px;
+  background-color: white;
+}
+.login-container h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FD2D01;
+  font-size: xx-large;
+  padding-top: 40px;
+  padding-bottom: 5px;
+}
+.login-container .login_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: large;
+  padding-bottom: 20px;
+}
+.login-container .login_form i {
+  margin-right: 10px;
+}
+.login-container .login_form .login_button-login {
+  font-size: large;
+  color: white;
+  background-color: black;
+  border-radius: 20px;
+  width: 140px;
+  height: 35px;
+  margin-top: 10px;
+}
+.login-container .login_form .login_button-login:hover {
+  background-color: #FD2D01;
+  cursor: pointer;
+}
+.login-container .login_button-register-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: large;
+}
+.login-container .login_button-register-container p {
+  margin-bottom: 10px;
+}
+.login-container .login_button-register-container .login_button-register {
+  background-color: black;
+  border-radius: 20px;
+  width: 140px;
+  height: 35px;
+}
+.login-container .login_button-register-container .login_button-register:hover {
+  background-color: #FD2D01;
+}
+.login-container .login_button-register-container .login_button-register a {
+  text-decoration: none;
+  font-size: large;
+  color: white;
+}
+
+.register_background {
+  background-image: url("../pages/background2.jpg");
+  margin-top: 5px;
+  padding-top: 20px;
+  padding-bottom: 90px;
+}
+
+.register_container {
+  padding-bottom: 50px;
+  box-shadow: 1px 3px 15px #d1d1d1;
+  border-radius: 20px;
+  width: 430px;
+  margin: 0 auto;
+  background-color: white;
+}
+.register_container h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FD2D01;
+  font-size: xx-large;
+  padding-top: 40px;
+  padding-bottom: 5px;
+}
+.register_container .register_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: large;
+  padding-bottom: 20px;
+}
+.register_container .register_form i {
+  margin-right: 10px;
+}
+.register_container .register_form .register_mail-input {
+  display: flex;
+  flex-direction: column;
+  width: 170px;
+}
+.register_container .register_form .register_password-input {
+  display: flex;
+  flex-direction: column;
+  width: 170px;
+}
+.register_container .register_form ul {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  margin-left: -50px;
+  font-size: small;
+}
+.register_container .register_form .register_button-register {
+  font-size: large;
+  color: white;
+  background-color: black;
+  border-radius: 20px;
+  width: 140px;
+  height: 35px;
+}
+.register_container .register_form .register_button-register:hover {
+  background-color: #FD2D01;
+  cursor: pointer;
+}
+.register_container .register_button-login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: large;
+}
+.register_container .register_button-login-container p {
+  margin-bottom: 10px;
+}
+.register_container .register_button-login-container .register_button-login {
+  background-color: black;
+  border-radius: 20px;
+  width: 140px;
+  height: 35px;
+}
+.register_container .register_button-login-container .register_button-login:hover {
+  background-color: #FD2D01;
+}
+.register_container .register_button-login-container .register_button-login a {
+  text-decoration: none;
+  font-size: large;
+  color: white;
+}
+
+.newpost_background {
+  background-image: url("../pages/background2.jpg");
+  margin-top: 5px;
+  padding-top: 20px;
+  padding-bottom: 90px;
+}
+
+.newpost_container {
+  margin: 0 auto;
+  padding-bottom: 50px;
+  box-shadow: 1px 3px 15px #d1d1d1;
+  width: 500px;
+  border-radius: 20px;
+  background-color: white;
+}
+.newpost_container h1 {
+  padding-top: 35px;
+  padding-bottom: 20px;
+  color: #FD2D01;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.newpost_container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  font-size: large;
+}
+.newpost_container form label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.newpost_container form label textarea {
+  height: 200px;
+  width: 350px;
+}
+.newpost_container form .newpost_button {
+  font-size: large;
+  color: white;
+  background-color: black;
+  border-radius: 20px;
+  width: 100px;
+  height: 35px;
+}
+.newpost_container form .newpost_button:hover {
+  background-color: #FD2D01;
+  cursor: pointer;
+}
+
+input[type=file] {
+  cursor: pointer;
+}
+
+input[type=text] {
+  height: 30px;
+  width: 350px;
+}/*# sourceMappingURL=main.css.map */

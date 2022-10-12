@@ -9,6 +9,10 @@ import Login from './pages/Login'
 import Error from './components/Error/'
 import React from 'react';
 import NewPost from './pages/NewPost';
+import Logout from './pages/Logout';
+import ViewPost from './pages/ViewPost';
+import EditPost from './pages/EditPost';
+import Profile from './pages/Profile';
 
 
 function App() {
@@ -20,10 +24,11 @@ function App() {
               <Route exact path="/" element={<Home />}/>
               <Route path="/login" element={<Login />}/>
               <Route path="/register" element={<SignUp />}/>
-              {/*<Route path="/profile" element={<Profil />}/>}*/}
+              <Route path="/profile" element={<Profile />}/>
               <Route path="/create-post" element={<NewPost />}/>
-              {/* <Route path="/post/:id" element={<Publication />}/> */}
-              {/* <Route path="/post-edit/:id" element={<PostEdit />}/> */}
+              <Route path="/post/:id" element={<ViewPost />}/>
+              <Route path="/edit-post/:id" element={<EditPost />}/>
+              <Route path="/logout" element={<Logout />}/>
               <Route path="*" element={<Error/>}/>
           </Routes>
         </Router>

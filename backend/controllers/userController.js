@@ -21,17 +21,13 @@ exports.signup = (req, res, next) => {
 }
 
 exports.login = (req, res, next) => {
-    console.log("connexion")
     User.findOne({ email: req.body.email })
         .then(user => {
-            console.log(user)
             if (!user) {
                 return res.status(401).json({ message: 'Identifiant incorrect'});
             }
-            console.log(req.body)
             bcrypt.compare(req.body.password, user.password)
                 .then(valid => {
-                    console.log(valid)
                     if (!valid) {
                         return res.status(401).json({ message: 'Mot de passe incorrect' });
                     }

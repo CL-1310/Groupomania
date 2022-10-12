@@ -1,0 +1,76 @@
+.home_page{
+    background-color: #FFD7D7;
+        h1{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color:  #FD2D01;
+            font-size: xx-large;
+            padding-top: 40px;
+            padding-bottom: 20px;
+            margin-top: 7px;
+        }
+        .home_posts-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            padding-bottom: 90px;
+                .home_one-post{
+                    text-decoration: none;
+                    color: black;
+                    background-color: white;
+                    box-shadow: 7px 7px 10px 6px #d1d1d1;
+                    border-radius: 15px;
+                    width: 760px;
+                    height: 540px;
+                    padding-left: 40px;
+                    padding-top: 10px;
+                        .home_postdate {
+                            display: flex;
+                            justify-content: right;
+                            padding-right: 40px;
+                            padding-top: 10px;
+                            font-size: small;
+                                i {
+                                    margin-right: 6px;
+                                }
+                        }
+                        h5 {
+                            padding-bottom: 30px;
+                            border: 3px dotted #FFD7D7;
+                            border-top: none;
+                            border-left: none;
+                            border-right: none;
+                            width: 720px;
+                        }
+                        h2 {
+                            color: #FD2D01;
+                            padding-top: 10px;
+                        }
+                        p {
+                            font-size: medium;
+                            padding-top: 10px;
+                        }
+                        img {
+                            display: block;
+                            flex-direction: row;
+                            flex-wrap: wrap;
+                            margin: auto;
+                            width: auto;
+                            height: 200px;
+                            padding-top: 25px;
+                            padding-bottom: 30px;
+                        }
+                        .home_modify {
+                            text-decoration: none;
+                            font-style: normal;
+                            color: black;
+                            
+                        }
+                        
+                }
+    }
+
+}
