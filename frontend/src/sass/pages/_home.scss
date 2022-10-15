@@ -1,5 +1,5 @@
 .home_page{
-    background-color: #FFD7D7;
+    background-color: lighten(#FFD7D7, 5%);
         h1{
             display: flex;
             align-items: center;
@@ -8,7 +8,7 @@
             font-size: xx-large;
             padding-top: 40px;
             padding-bottom: 20px;
-            margin-top: 7px;
+            margin-top: 4px;
         }
         .home_posts-container{
             display: flex;
@@ -24,51 +24,68 @@
                     box-shadow: 7px 7px 10px 6px #d1d1d1;
                     border-radius: 15px;
                     width: 760px;
-                    height: 540px;
+                    height: 590px;
                     padding-left: 40px;
                     padding-top: 10px;
-                        .home_postdate {
-                            display: flex;
-                            justify-content: right;
-                            padding-right: 40px;
-                            padding-top: 10px;
-                            font-size: small;
-                                i {
-                                    margin-right: 6px;
-                                }
-                        }
-                        h5 {
-                            padding-bottom: 30px;
-                            border: 3px dotted #FFD7D7;
-                            border-top: none;
-                            border-left: none;
-                            border-right: none;
-                            width: 720px;
-                        }
-                        h2 {
-                            color: #FD2D01;
-                            padding-top: 10px;
-                        }
-                        p {
-                            font-size: medium;
-                            padding-top: 10px;
-                        }
-                        img {
-                            display: block;
-                            flex-direction: row;
-                            flex-wrap: wrap;
-                            margin: auto;
-                            width: auto;
-                            height: 200px;
-                            padding-top: 25px;
-                            padding-bottom: 30px;
-                        }
-                        .home_modify {
+                        .home_one-post-link {
                             text-decoration: none;
-                            font-style: normal;
                             color: black;
+                            .home_postdate {
+                                display: flex;
+                                justify-content: right;
+                                padding-right: 40px;
+                                padding-top: 10px;
+                                font-size: small;
+                                    i {
+                                        margin-right: 6px;
+                                    }
+                            }
+                            h5 {
+                                padding-bottom: 30px;
+                                border: 3px dotted #FFD7D7;
+                                border-top: none;
+                                border-left: none;
+                                border-right: none;
+                                width: 720px;
+                            }
+                            h2 {
+                                color: darken(#FFD7D7, 15%);
+                                padding-top: 10px;
+                            }
+                            p {
+                                font-size: medium;
+                                padding-top: 10px;
+                            }
+                            img {
+                                display: block;
+                                flex-direction: row;
+                                flex-wrap: wrap;
+                                margin: auto;
+                                width: auto;
+                                height: 200px;
+                                padding-top: 25px;
+                                padding-bottom: 30px;
+                            }
+                        }
+                        button {
+                            font-size: small;
+                            background-color: #FFD7D7;
+                            color: darken(#4E5166 , 15%);
+                            border-radius: 20px;
+                            width: 80px;
+                            height: 30px;
+                            margin-top: 10px;
+                                a {
+                                    text-decoration: none;
+                                    color: darken(#4E5166 , 15%);
+                                }
+                                &:hover{
+                                    background-color: darken(#FFD7D7, 5%);
+                                    cursor: pointer;
+                                }
                             
                         }
+                        
                         
                 }
     }

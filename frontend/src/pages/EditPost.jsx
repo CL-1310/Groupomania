@@ -1,10 +1,9 @@
-import { useEffect, useContext, useState} from 'react';
+import { useEffect, useState} from 'react';
 import axios from "axios";
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import { useNavigate, useParams } from 'react-router-dom';
 import "../sass/main.css"
-// import { userContext } from '../context/UserContext';
 
 const EditPost = () => {
     const [post, setPost] = useState([])
@@ -54,7 +53,7 @@ const EditPost = () => {
         }
         setUserId(localStorage.getItem("userConnected"))
         getPost()       
-    },[]);
+    },[navigate]);
 
     const handlePostImg = (e) => {
         e.preventDefault();
@@ -65,7 +64,12 @@ const EditPost = () => {
     const postUpdate = (e) => {
         e.preventDefault();
         console.log(title)
-        // if title vide + description vide
+        if(title === ""){
+            setTitle(post.title)
+        }
+        if (description === ""){
+            setDescription(post.description)
+        }
         const checkTitle  = POST_REGEX.test(title);
         if(checkTitle === true){
         setValidTitle(true)

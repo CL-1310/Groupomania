@@ -15,23 +15,40 @@ const AllPosts = () => {
     const urlParams = useParams()
     let navigate = useNavigate();
 
+    const getPost = () => {
+        axios({
+            method:"get",
+            url:(`http://localhost:4000/api/posts/${urlParams.id}`),
+            credentials:true,
+            headers:{"Authorization":`Bearer ${token}`}
+        })
+        .then(response=>{
+
+            setPost(response.data)
+
+        }).catch(err=>{
+            if (!err?.response) {
+                setErrMsg("No Server Response");
+            } else if (err.response?.status === 401){
+                setErrMsg("Erreur 401");
+            }
+        })
+        
+    }
+
     useEffect(() => {
         if(!localStorage.getItem("userConnected")){
             navigate("/login");
         }
+        if (post.authorId !== localStorage.getItem("userConnected")){
+            setErrMsg("Vous ne disposez pas des authorisations nécéssaires pour pouvoir modifier cette publication");
+        }
+        setUserId(localStorage.getItem("userConnected"))
+        setToken(localStorage.getItem("userToken"))
+        getPost()
+        getPosts()       
+    },[navigate]);
 
-        getPosts()    
-    },[navigate],[]);
-
-    useEffect(() => {
-        // if (post.userId !== localStorage.getItem("userConnected")){
-        //     setErrMsg("Vous ne disposez pas des authorisations nécéssaires pour pouvoir modifier cette publication");
-        // }else {
-            setToken(localStorage.getItem("userToken"))
-            setUserId(localStorage.getItem("userConnected"))
-        // }
-
-    });
 
     const getPosts = () => {
         axios({
@@ -51,37 +68,16 @@ const AllPosts = () => {
         })
     }
 
-    const getPost = () => {
-        axios({
-            method:"get",
-            url:(`http://localhost:4000/api/posts/${post.id}`),
-            credentials:true,
-            headers:{"Authorization":`Bearer ${token}`}
-        })
-        .then(response=>{
-
-            setPost(response.data)
-
-        }).catch(err=>{
-            if (!err?.response) {
-                setErrMsg("No Server Response");
-            } else if (err.response?.status === 401){
-                setErrMsg("Erreur 401");
-            }
-        })
-        
-    }
-
-
     const erasePost = () => {
         axios({
             method:"delete",
-            url:(`http://localhost:4000/api/posts/${post.id}`),
+            url:(`http://localhost:4000/api/posts/${urlParams.id}`),
+            post,
             credentials:true,
             headers:{"Authorization":`Bearer ${token}`}
         })
         .then(reponse=>{
-            navigate("/")
+            getPosts()
 
         }).catch(err=>{
             if (!err?.response) {
@@ -92,8 +88,6 @@ const AllPosts = () => {
         })
         
     }
-
-
 
     return (
         <>  
@@ -106,7 +100,7 @@ const AllPosts = () => {
                     {
                         posts.map((post)=>
                             <div key={post._id} className='home_one-post'>
-                                <Link to={"/post/"+ post._id} >
+                                <Link to={"/post/"+ post._id} className='home_one-post-link' >
                                     <div className='home_postdate'> <i className='bi bi-clock'></i> Posté le {post.date} </div>
                                     <h3> Posté par {post.userId}</h3>
                                     <h5>Département : </h5>

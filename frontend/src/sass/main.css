@@ -81,7 +81,7 @@ nav .header_links i {
 }
 
 .home_page {
-  background-image: url("../pages/background2.jpg");
+  background-color: #fff1f1;
 }
 .home_page h1 {
   display: flex;
@@ -91,7 +91,7 @@ nav .header_links i {
   font-size: xx-large;
   padding-top: 40px;
   padding-bottom: 20px;
-  margin-top: 7px;
+  margin-top: 4px;
 }
 .home_page .home_posts-container {
   display: flex;
@@ -108,21 +108,25 @@ nav .header_links i {
   box-shadow: 7px 7px 10px 6px #d1d1d1;
   border-radius: 15px;
   width: 760px;
-  height: 540px;
+  height: 590px;
   padding-left: 40px;
   padding-top: 10px;
 }
-.home_page .home_posts-container .home_one-post .home_postdate {
+.home_page .home_posts-container .home_one-post .home_one-post-link {
+  text-decoration: none;
+  color: black;
+}
+.home_page .home_posts-container .home_one-post .home_one-post-link .home_postdate {
   display: flex;
   justify-content: right;
   padding-right: 40px;
   padding-top: 10px;
   font-size: small;
 }
-.home_page .home_posts-container .home_one-post .home_postdate i {
+.home_page .home_posts-container .home_one-post .home_one-post-link .home_postdate i {
   margin-right: 6px;
 }
-.home_page .home_posts-container .home_one-post h5 {
+.home_page .home_posts-container .home_one-post .home_one-post-link h5 {
   padding-bottom: 30px;
   border: 3px dotted #FFD7D7;
   border-top: none;
@@ -130,15 +134,15 @@ nav .header_links i {
   border-right: none;
   width: 720px;
 }
-.home_page .home_posts-container .home_one-post h2 {
-  color: #FD2D01;
+.home_page .home_posts-container .home_one-post .home_one-post-link h2 {
+  color: #ff8b8b;
   padding-top: 10px;
 }
-.home_page .home_posts-container .home_one-post p {
+.home_page .home_posts-container .home_one-post .home_one-post-link p {
   font-size: medium;
   padding-top: 10px;
 }
-.home_page .home_posts-container .home_one-post img {
+.home_page .home_posts-container .home_one-post .home_one-post-link img {
   display: block;
   flex-direction: row;
   flex-wrap: wrap;
@@ -148,14 +152,26 @@ nav .header_links i {
   padding-top: 25px;
   padding-bottom: 30px;
 }
-.home_page .home_posts-container .home_one-post .home_modify {
+.home_page .home_posts-container .home_one-post button {
+  font-size: small;
+  background-color: #FFD7D7;
+  color: #2d2f3b;
+  border-radius: 20px;
+  width: 80px;
+  height: 30px;
+  margin-top: 10px;
+}
+.home_page .home_posts-container .home_one-post button a {
   text-decoration: none;
-  font-style: normal;
-  color: black;
+  color: #2d2f3b;
+}
+.home_page .home_posts-container .home_one-post button:hover {
+  background-color: #ffbebe;
+  cursor: pointer;
 }
 
 .login_background {
-  background-image: url("../pages/background2.jpg");
+  background-color: #fff1f1;
   margin-top: 5px;
   padding-top: 20px;
   padding-bottom: 90px;
@@ -229,7 +245,7 @@ nav .header_links i {
 }
 
 .register_background {
-  background-image: url("../pages/background2.jpg");
+  background-color: #fff1f1;
   margin-top: 5px;
   padding-top: 20px;
   padding-bottom: 90px;
@@ -319,7 +335,7 @@ nav .header_links i {
 }
 
 .newpost_background {
-  background-image: url("../pages/background2.jpg");
+  background-color: #fff1f1;
   margin-top: 5px;
   padding-top: 20px;
   padding-bottom: 90px;
