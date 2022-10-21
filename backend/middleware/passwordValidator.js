@@ -11,7 +11,6 @@ passwordSchema
 .is().not().oneOf(['Passw0rd', 'Password123']);
 
 module.exports = (req,res,next) => {
-    console.log(req.body.password);
     if(passwordSchema.validate(req.body.password)){
         next()
     }else{

@@ -1,0 +1,47 @@
+.site {
+    animation: site-appear 7000ms forwards;
+}
+
+@keyframes site-appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.loading-spinner {
+    animation: loading-disappear 4800ms forwards;
+    visibility: hidden;
+    position : absolute;
+    top      : 50%;
+    left     : 50%;
+    -webkit-transform : translateX(-50%) translateY(-50%);
+       -moz-transform : translateX(-50%) translateY(-50%);
+            transform : translateX(-50%) translateY(-50%);
+            img {
+                width: 500px;
+                height: 90px;
+            }
+            .beatloader {
+                position: absolute;
+                left: 50%;
+                top: 100%;
+                width: 150%;
+            }
+            
+}
+
+
+
+@keyframes loading-disappear {
+    from {
+        visibility: visible;
+        opacity: 1;
+    }
+    to {
+        visibility: hidden;
+        opacity: 0;
+    }
+}

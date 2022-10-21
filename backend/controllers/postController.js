@@ -3,11 +3,13 @@ const Post = require('../models/Post');
 exports.createPost = (req, res, next) => {
   console.log(req.body);
   console.log(req.file)
+  const dateNow = Date.now()
   const postObject = req.body;
   const post = new Post({
     userId: postObject.userId,
     title: postObject.title,
     description: postObject.description,
+    createdAt: dateNow,
     imageUrl: `${req.protocol}://${req.get("host")}/images/${req.file.filename}`,
     likes : 0,
     dislikes : 0,
@@ -29,8 +31,9 @@ exports.createPost = (req, res, next) => {
 };
 
 exports.getOnePost = (req, res, next) => {
+  console.log(req.params.id)
     Post.findOne({
-      id: req.params.id
+      _id: req.params.id
     }).then(
       (post) => {
         res.status(200).json(post);
@@ -79,7 +82,7 @@ exports.getOnePost = (req, res, next) => {
   };
   
   exports.getAllPost = (req, res, next) => {
-    Post.find().then(
+    Post.find().sort({createdAt: 'desc'}).then(
       (posts) => {
         res.status(200).json(posts);
       }
@@ -93,27 +96,25 @@ exports.getOnePost = (req, res, next) => {
   exports.likes = (req, res, next) => {
     Post.findOne({
       _id: req.params.id
-    }).then((post) => {
-        if(req.body.like === 1){
-          post.usersLiked.push(req.body.userId)
-        }else if(req.body.like === -1){
-          post.usersDisliked.push(req.body.userId)
-        }else if(req.body.like === 0){
-          if(post.usersLiked.includes(req.body.userId)){
-            let likedIndex = post.usersLiked.indexOf(req.body.userId)
-            post.usersLiked.splice(likedIndex)
-          }
-          if(post.usersDisliked.includes(req.body.userId)){
-            let dislikedIndex = post.usersDisliked.indexOf(req.body.userId)
-            post.usersDisliked.splice(dislikedIndex)
-          }
-        }
-        post.likes = post.usersLiked.length
+    }).then((currentPost) => {
+      if(currentPost.usersLiked.includes(req.auth.userId)){
+        let likedIndex = currentPost.usersLiked.indexOf(req.auth.userId)
+        currentPost.usersLiked.splice(likedIndex)
+      }
+      if(currentPost.usersDisliked.includes(req.auth.userId)){
+        let dislikedIndex = currentPost.usersDisliked.indexOf(req.auth.userId)
+        currentPost.usersDisliked.splice(dislikedIndex)
+      }
+      if(parseInt(req.params.likes) === 1){
+        currentPost.usersLiked.push(req.auth.userId)
+      }else if(parseInt(req.params.likes) === -1){
+        currentPost.usersDisliked.push(req.auth.userId)
+      }
+      currentPost.likes = currentPost.usersLiked.length
 
-        post.dislikes = post.usersDisliked.length
-
-        post.save()
-        .then((post) => res.status(200).json({ message: "Mise à jour des likes et des dislikes"}))
+      currentPost.dislikes = currentPost.usersDisliked.length
+      currentPost.save()
+        .then(() => res.status(200).json({ message: "Mise à jour des likes et des dislikes"}))
         .catch((error) => res.status(400).json(error))
       }
     ).catch(

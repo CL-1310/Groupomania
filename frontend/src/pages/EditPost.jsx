@@ -10,9 +10,9 @@ const EditPost = () => {
     const [userId, setUserId] = useState("")
     const [token, setToken] = useState(localStorage.getItem("userToken"))
     const [errMsg, setErrMsg] = useState("");
-    const [title, setTitle] = useState("");
-    const [validTitle, setValidTitle] = useState(false);
-    const [description, setDescription] = useState("");
+    const [title, setTitle] = useState('');
+    const [validTitle, setValidTitle] = useState("");
+    const [description, setDescription] = useState('');
     const [validDescription, setValidDescription] = useState(false);
     const [success, setSuccess] = useState(false);
     const [postImgInput, setPostImgInput] = useState();
@@ -32,6 +32,8 @@ const EditPost = () => {
         .then(response=>{
 
             setPost(response.data)
+            setTitle(response.data.title)
+            setDescription(response.data.description)
 
         }).catch(err=>{
             if (!err?.response) {
@@ -61,9 +63,8 @@ const EditPost = () => {
         setImgPostFile(e.target.files[0])
     }
 
-    const postUpdate = (e) => {
+    const postUpdate = async (e) => {
         e.preventDefault();
-        console.log(title)
         if(title === ""){
             setTitle(post.title)
         }
@@ -72,14 +73,13 @@ const EditPost = () => {
         }
         const checkTitle  = POST_REGEX.test(title);
         if(checkTitle === true){
-        setValidTitle(true)
+            setValidTitle(true)
         }
-        console.log(checkTitle)
         const checkDescription = POST_REGEX.test(description)
         if(checkDescription === true){
-        setValidDescription(true)
+            setValidDescription(true)
         }
-        console.log(checkDescription)
+
         if(checkTitle === true && checkDescription === true){
             console.log("checkComplete")
             const formData = new FormData()
@@ -112,7 +112,7 @@ const EditPost = () => {
             <Header/>
             <div className='newpost_background'>
                 <div className='newpost_container'>
-                    <h1>Nouveau post</h1>
+                    <h1>Éditer le post</h1>
 
                     <section>
                         <form onSubmit={postUpdate} encType="multipart/form-data">
@@ -120,10 +120,8 @@ const EditPost = () => {
                                 Titre :
                                 <input
                                     type="text"
-                                    autoComplete="off"
                                     onChange={(e) => setTitle(e.target.value)}
                                     defaultValue={post.title}
-                                    // value={title}
                                     required
                                 />
                             </label>
@@ -134,7 +132,6 @@ const EditPost = () => {
                                     type="text"
                                     onChange={(e) => setDescription(e.target.value)}
                                     defaultValue={post.description}
-                                    // value={description}
                                     required
                                 />
                             </label>

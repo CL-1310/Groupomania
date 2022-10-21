@@ -5,6 +5,7 @@ import Footer from "../components/Footer"
 import { useNavigate, Link } from 'react-router-dom';
 import "../sass/main.css"
 import 'typeface-lato';
+// import DefaultAvatar from './user-default.jpg';
 
 
 const Register = () => {
@@ -12,14 +13,24 @@ const Register = () => {
     const [validMail, setValidMail] = useState(false);
     const [pwd, setPwd] = useState("");
     const [validPwd, setValidPwd] = useState(false);
-    const [setMatchPwd] = useState("");
+    const [matchPwd, setMatchPwd] = useState("");
+    // const [birthdate, setBirthdate] = useState("")
+    // const [department, setDepartment] = useState("")
+    // const [username, setUsername] = useState("")
+    // const [userAvatarInput, setUserAvatarInput] = useState();
+    // const [avatar, setAvatar] = useState();
     const [errMsg, setErrMsg] = useState("");
-    const [setSuccess] = useState(false);
+    const [success, setSuccess] = useState(false);
     let navigate = useNavigate();
     const MAIL_REGEX = /^[\w\.=-]+@[\w\.-]+\.[\w]{2,3}$/g
     const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 
+    // const handleUserAvatar = (e) => {
+    //   e.preventDefault();
+    //   setUserAvatarInput(e.target.value)
+    //   setAvatar(e.target.files[0])
+    // }
     const handleSubmit = async (e) => {
       e.preventDefault();
       const checkMail = MAIL_REGEX.test(mail);
@@ -32,6 +43,9 @@ const Register = () => {
       if(checkPassword === true){
         setValidPwd(true)
       }
+      // if (avatar === ""){
+      //   setUserAvatarInput(DefaultAvatar)
+      // }
       if(checkMail === true && checkPassword === true){
         axios.post(
           "http://localhost:4000/api/auth/signup",
@@ -41,6 +55,9 @@ const Register = () => {
           setMail("");
           setPwd("");
           setMatchPwd("");
+          // setUsername("");
+          // setDepartment("");
+          // setBirthdate("");
           navigate("/login");
         }).catch((err)=>{
           if (!err?.response) {
@@ -65,7 +82,7 @@ const Register = () => {
               <h1>S'inscrire</h1>
                           
               <section>
-                <form onSubmit={handleSubmit} className='register_form'>
+                <form onSubmit={handleSubmit} className='register_form' encType="multipart/form-data">
                   <label htmlFor="usermail" className='register_mail'>
                     <i className='bi bi-envelope-fill'></i> Adresse mail :
                   </label>

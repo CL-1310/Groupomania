@@ -4,22 +4,24 @@ import {Link, useNavigate} from 'react-router-dom'
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 
+
 const Profile = () => {
 
-    const [users, setUsers] = useState([])
+    const [userId, setUserId] = useState(localStorage.getItem("userConnected"))
+    const [user, setUser] = useState([])
     const [token, setToken] = useState(localStorage.getItem("userToken"))
     const [errMsg, setErrMsg] = useState("");
     let navigate = useNavigate();
 
-    const getProfiles = () => {
+    const getProfile = (userId) => {
         axios({
             method:"get",
-            url:"http://localhost:4000/api/auth/user/_:id",
+            url:(`http://localhost:4000/api/auth/user/${userId}`),
             credentials:true,
             headers:{"Authorization":`Bearer ${token}`}
         })
         .then(response=>{
-            setUsers(response.data)
+            setUser(response.data)
 
         }).catch(err=>{
             if (!err?.response) {
@@ -34,30 +36,27 @@ const Profile = () => {
             navigate("/login");
         }
 
-        getProfiles()    
+        setUserId(localStorage.getItem("userConnected"))
+        setToken(localStorage.getItem("userToken"))
+        getProfile()  
     },[navigate]);
 
     return (
         <>  
             <Header/>
+            <div className='profile_background'>
+                <div className='profile_container'>
+                    <h1>Profil</h1>
 
-            <div className=''>
-                <h1>Profil</h1>
-
-                <div className=''>
-                    {
-                        users.map((user)=>
-                            <div key={user._id} className=''>
-                                <h3> Nom d'utilisateur {user.username}</h3>
-                                <h4>Département : {user.department}</h4>
-                                <h5>Date de naissance : {user.birthdate}</h5>
-                                <img src={user.avatar} alt="" />
-                                <Link to="/edit-user/:id">Modifier</Link>
-                            </div>
-                        )
-                        
-                    }  
-
+                    <div className='profile_info'>
+                        <h3> Nom d'utilisateur : {user.username}</h3>
+                        <h4>Service : {user.department}</h4>
+                        <h4>Date de naissance : {user.birthdate}</h4>
+                        <img src={user.avatar} alt="" />
+                        <button className='profile_edit-button'>
+                            <Link to={"/edit-profile/"+user._id}>Modifier</Link>
+                        </button>
+                    </div>
                 </div>
             </div>
 

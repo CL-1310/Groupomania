@@ -5,12 +5,15 @@ const User = require('../models/User')
 const jwt = require('jsonwebtoken');
 
 exports.signup = (req, res, next) => {
-    console.log("inscription")
     bcrypt.hash(req.body.password, 10)
         .then(hash => {
         const user = new User({
             email: req.body.email,
             password: hash,
+            username: "",
+            department: "",
+            avatar: "",
+            birthdate: "",
             isAdmin: false
         });
         user.save()
@@ -44,3 +47,35 @@ exports.login = (req, res, next) => {
         })
         .catch(error => res.status(500).json({ error }));
 }
+
+exports.getOneUser = (req, res, next) => {
+    User.findOne({ id: req.params.id })
+        .then(user => {
+            if (!user) {
+                return res.status(401).json({ message: 'Identifiant incorrect'});
+            }
+            res.status(200).json(user)
+        })
+        .catch(error => res.status(500).json({ error }));
+}
+
+exports.editOneUser = (req, res, next) => {
+    console.log(req.body)
+    const body = req.body
+    const userObject = req.file ?
+    {
+      ...body,
+      avatar: `${req.protocol}://${req.get("host")}/avatars/${req.file.filename}`,
+    }: {...req.body}
+    User.updateOne({_id: req.params.id}, userObject).then(
+      () => {
+        res.status(201).json({
+          message: 'Informations modifiées avec succès'
+        });
+      }
+    ).catch(
+      (error) => {
+        res.status(400).json({ error: error });
+      }
+    );
+  };
