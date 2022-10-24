@@ -86,13 +86,42 @@
     opacity: 0;
   }
 }
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .loading-spinner {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+  }
+  .loading-spinner img {
+    width: 350px;
+    height: 60px;
+  }
+}
+@media (max-width: 767px) {
+  .loading-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+  .loading-spinner img {
+    width: 260px;
+    height: 50px;
+  }
+  .loading-spinner .beatloader {
+    left: 40%;
+    width: 25%;
+  }
+}
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: 1px 2px 5px #d1d1d1;
   padding-bottom: 10px;
+  margin-top: -22px;
   background-color: white;
+  position: fixed;
+  width: 1535px;
 }
 nav img {
   height: 65px;
@@ -116,6 +145,204 @@ nav .header_links i {
   margin-right: 6px;
 }
 
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  nav {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  nav {
+    display: none;
+  }
+}
+.menuburger_container {
+  display: none;
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .menuburger_container {
+    display: contents;
+    height: 120px;
+  }
+  .menuburger_container img {
+    height: 70px;
+    width: 370px;
+    margin-left: 35px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  .menuburger_container nav {
+    display: contents;
+  }
+  .menuburger_container nav a {
+    text-decoration: none;
+    color: #e42801;
+    font-size: larger;
+  }
+  .menuburger_container nav a:hover {
+    color: #fe4119;
+  }
+  .menuburger_container nav .menu-item {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-left: 25px;
+    margin-bottom: 20px;
+  }
+  .menuburger_container nav .menu-item i {
+    font-style: normal;
+  }
+  .menuburger_container nav .menu-item i span {
+    margin-left: 10px;
+  }
+  .bm-burger-button {
+    position: fixed;
+    width: 36px;
+    height: 30px;
+    right: 10%;
+    top: 40px;
+  }
+  /* Color/shape of burger icon bars */
+  .bm-burger-bars {
+    background: #FD2D01;
+  }
+  /* Color/shape of burger icon bars on hover*/
+  .bm-burger-bars-hover {
+    background: #4E5166;
+  }
+  /* Position and sizing of clickable cross button */
+  .bm-cross-button {
+    height: 24px;
+    width: 24px;
+  }
+  /* Color/shape of close button cross */
+  .bm-cross {
+    background: #FD2D01;
+  }
+  /*
+  Sidebar wrapper styles
+  Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+  */
+  .bm-menu-wrap {
+    position: fixed;
+    height: 100%;
+  }
+  /* General sidebar styles */
+  .bm-menu {
+    background: #FFD7D7;
+    padding: 2.5em 1.5em 0;
+    font-size: 1.15em;
+  }
+  /* Morph shape necessary with bubble or elastic */
+  .bm-morph-shape {
+    fill: #FFD7D7;
+  }
+  /* Wrapper for item list */
+  .bm-item-list {
+    color: #b8b7ad;
+    padding: 0.8em;
+  }
+  /* Individual item */
+  .bm-item {
+    display: inline-block;
+  }
+  /* Styling of overlay */
+  .bm-overlay {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
+@media (max-width: 767px) {
+  .menuburger_container {
+    display: contents;
+    height: 80px;
+  }
+  .menuburger_container img {
+    height: 47px;
+    width: 260px;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  .menuburger_container nav {
+    display: contents;
+  }
+  .menuburger_container nav a {
+    text-decoration: none;
+    color: #e42801;
+    font-size: larger;
+  }
+  .menuburger_container nav a:hover {
+    color: #fe4119;
+  }
+  .menuburger_container nav .menu-item {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-left: 25px;
+    margin-bottom: 20px;
+  }
+  .menuburger_container nav .menu-item i {
+    font-style: normal;
+  }
+  .menuburger_container nav .menu-item i span {
+    margin-left: 10px;
+  }
+  .bm-burger-button {
+    position: fixed;
+    width: 31px;
+    height: 25px;
+    right: 8%;
+    top: 30px;
+  }
+  /* Color/shape of burger icon bars */
+  .bm-burger-bars {
+    background: #FD2D01;
+  }
+  /* Color/shape of burger icon bars on hover*/
+  .bm-burger-bars-hover {
+    background: #4E5166;
+  }
+  /* Position and sizing of clickable cross button */
+  .bm-cross-button {
+    height: 24px;
+    width: 24px;
+  }
+  /* Color/shape of close button cross */
+  .bm-cross {
+    background: #FD2D01;
+  }
+  /*
+  Sidebar wrapper styles
+  Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+  */
+  .bm-menu-wrap {
+    position: fixed;
+    height: 100%;
+  }
+  /* General sidebar styles */
+  .bm-menu {
+    background: #FFD7D7;
+    padding: 2.5em 1.5em 0;
+    font-size: 1.15em;
+  }
+  /* Morph shape necessary with bubble or elastic */
+  .bm-morph-shape {
+    fill: #FFD7D7;
+  }
+  /* Wrapper for item list */
+  .bm-item-list {
+    color: #b8b7ad;
+    padding: 0.8em;
+  }
+  /* Individual item */
+  .bm-item {
+    display: inline-block;
+  }
+  /* Styling of overlay */
+  .bm-overlay {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
 .footer_container {
   display: flex;
   flex-wrap: wrap;
@@ -164,6 +391,50 @@ nav .header_links i {
   margin-right: 6px;
 }
 
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .footer_container {
+    height: 40px;
+  }
+  .footer_container img {
+    height: 35px;
+    width: 200px;
+    margin-right: 560px;
+    margin-top: 15px;
+  }
+  .footer_container ul {
+    margin-top: 0px;
+    gap: 25px;
+    position: relative;
+    bottom: 28px;
+    left: 100px;
+  }
+  .footer_container ul li {
+    font-size: medium;
+  }
+}
+@media (max-width: 767px) {
+  .footer_container {
+    width: 375px;
+    height: 40px;
+  }
+  .footer_container img {
+    height: 35px;
+    width: 220px;
+    margin-top: 25px;
+    margin-right: 0px;
+    margin-bottom: 20px;
+  }
+  .footer_container ul {
+    margin-top: 0px;
+    padding-left: 90px;
+    margin-right: 110px;
+    padding-bottom: 35px;
+    gap: 25px;
+  }
+  .footer_container ul li {
+    font-size: medium;
+  }
+}
 .home_page {
   background-color: #fff1f1;
 }
@@ -173,9 +444,8 @@ nav .header_links i {
   justify-content: center;
   color: #FD2D01;
   font-size: xx-large;
-  padding-top: 40px;
+  padding-top: 110px;
   padding-bottom: 20px;
-  margin-top: 4px;
 }
 .home_page .home_posts-container {
   display: flex;
@@ -284,10 +554,66 @@ nav .header_links i {
   color: #FD2D01;
 }
 
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .home_page h1 {
+    padding-top: 40px;
+  }
+  .home_page .home_posts-container .home_one-post {
+    width: 670px;
+  }
+}
+@media (max-width: 767px) {
+  .home_page h1 {
+    font-size: x-large;
+    padding-top: 40px;
+  }
+  .home_page .home_posts-container .home_one-post {
+    height: auto;
+    width: 320px;
+    padding-left: 15px;
+  }
+  .home_page .home_posts-container .home_one-post .home_one-post-link {
+    text-decoration: none;
+    color: black;
+    font-size: medium;
+  }
+  .home_page .home_posts-container .home_one-post .home_one-post-link .home_postdate {
+    font-size: x-small;
+    padding-right: 15px;
+    padding-bottom: 10px;
+  }
+  .home_page .home_posts-container .home_one-post .home_one-post-link .home_postdate i {
+    margin-right: 6px;
+  }
+  .home_page .home_posts-container .home_one-post .home_one-post-link h5 {
+    padding-bottom: 30px;
+    width: 300px;
+    font-size: medium;
+  }
+  .home_page .home_posts-container .home_one-post .home_one-post-link h2 {
+    font-size: large;
+    padding-top: 5px;
+  }
+  .home_page .home_posts-container .home_one-post .home_one-post-link p {
+    font-size: medium;
+    padding-top: 3px;
+  }
+  .home_page .home_posts-container .home_one-post .home_one-post-link img {
+    padding-bottom: 20px;
+    width: 290px;
+    height: auto;
+  }
+  .home_page .home_posts-container .home_one-post .home_react-buttons {
+    margin-top: -35px;
+    margin-right: 20px;
+    gap: 9px;
+    padding-bottom: 20px;
+  }
+}
 .login_background {
   background-color: #fff1f1;
-  margin-top: 5px;
-  padding-top: 20px;
+  padding-top: 130px;
+  margin-top: 20px;
   padding-bottom: 90px;
 }
 
@@ -358,11 +684,28 @@ nav .header_links i {
   color: white;
 }
 
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .login_background {
+    padding-bottom: 420px;
+    padding-top: 50px;
+    margin-top: 10px;
+  }
+}
+@media (max-width: 767px) {
+  .login_background {
+    padding-top: 40px;
+    margin-top: 10px;
+  }
+  .login-container h1 {
+    font-size: x-large;
+    padding-bottom: 15px;
+  }
+}
 .register_background {
   background-color: #fff1f1;
-  margin-top: 5px;
-  padding-top: 20px;
-  padding-bottom: 90px;
+  padding-bottom: 100px;
+  padding-top: 130px;
+  margin-top: 20px;
 }
 
 .register_container {
@@ -448,11 +791,34 @@ nav .header_links i {
   color: white;
 }
 
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .register_background {
+    padding-bottom: 265px;
+    padding-top: 50px;
+    margin-top: 10px;
+  }
+}
+@media (max-width: 767px) {
+  .register_background {
+    padding-top: 40px;
+    margin-top: 10px;
+  }
+  .register_container {
+    width: 320px;
+  }
+  .register_container h1 {
+    font-size: x-large;
+    padding-bottom: 15px;
+  }
+  .register_container .register_form ul {
+    width: 250px;
+  }
+}
 .newpost_background {
   background-color: #fff1f1;
-  margin-top: 5px;
-  padding-top: 20px;
-  padding-bottom: 90px;
+  margin-top: 20px;
+  padding-top: 110px;
+  padding-bottom: 100px;
 }
 
 .newpost_container {
@@ -511,6 +877,35 @@ input[type=text] {
   width: 350px;
 }
 
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .newpost_background {
+    padding-bottom: 190px;
+    padding-top: 40px;
+    margin-top: 10px;
+  }
+}
+@media (max-width: 767px) {
+  .newpost_background {
+    padding-top: 40px;
+    margin-top: 10px;
+  }
+  .newpost_container {
+    width: 320px;
+  }
+  .newpost_container h1 {
+    font-size: x-large;
+  }
+  .newpost_container form label textarea {
+    width: 240px;
+  }
+  input[type=file] {
+    cursor: pointer;
+  }
+  input[type=text] {
+    height: 30px;
+    width: 240px;
+  }
+}
 .viewpost_page {
   background-color: #fff1f1;
   padding-bottom: 100px;
@@ -521,9 +916,9 @@ input[type=text] {
   justify-content: center;
   color: #FD2D01;
   font-size: xx-large;
-  padding-top: 40px;
+  padding-top: 110px;
   padding-bottom: 20px;
-  margin-top: 4px;
+  margin-top: 20px;
 }
 .viewpost_page .viewpost_container {
   display: flex;
@@ -535,7 +930,7 @@ input[type=text] {
   box-shadow: 7px 7px 10px 6px #d1d1d1;
   border-radius: 15px;
   width: 750px;
-  height: 1000px;
+  height: auto;
   padding-left: 40px;
   padding-top: 10px;
   margin: auto;
@@ -571,9 +966,10 @@ input[type=text] {
   flex-direction: row;
   flex-wrap: wrap;
   margin: auto;
-  width: 650px;
-  height: 400px;
+  width: auto;
+  height: 250px;
   padding-top: 25px;
+  padding-bottom: 30px;
 }
 .viewpost_page .viewpost_container button {
   background-color: #FFD7D7;
@@ -624,11 +1020,65 @@ input[type=text] {
   color: #FD2D01;
 }
 
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .viewpost_page h1 {
+    font-size: x-large;
+    padding-top: 40px;
+    margin-top: 10px;
+  }
+  .viewpost_page .viewpost_container {
+    width: 670px;
+  }
+  .viewpost_page .viewpost_container img {
+    width: auto;
+    height: 250px;
+    padding-top: 30px;
+  }
+}
+@media (max-width: 767px) {
+  .viewpost_page h1 {
+    font-size: x-large;
+    padding-top: 40px;
+    margin-top: 10px;
+  }
+  .viewpost_page .viewpost_container {
+    width: 320px;
+    padding-left: 15px;
+  }
+  .viewpost_page .viewpost_container .viewpost_postdate {
+    font-size: x-small;
+    padding-right: 15px;
+    padding-bottom: 10px;
+  }
+  .viewpost_page .viewpost_container h5 {
+    width: 300px;
+    font-size: medium;
+  }
+  .viewpost_page .viewpost_container h2 {
+    font-size: large;
+    padding-top: 0px;
+    margin-top: 0px;
+  }
+  .viewpost_page .viewpost_container p {
+    font-size: medium;
+    padding-top: 0px;
+  }
+  .viewpost_page .viewpost_container img {
+    padding-bottom: 25px;
+    width: 290px;
+    height: auto;
+  }
+  .viewpost_page .viewpost_container .viewpost_react-buttons {
+    margin-top: -35px;
+    margin-right: 20px;
+    gap: 9px;
+  }
+}
 .profile_background {
   background-color: #fff1f1;
   padding-bottom: 130px;
-  padding-top: 70px;
-  margin-top: 5px;
+  padding-top: 130px;
+  margin-top: 20px;
 }
 .profile_background h1 {
   display: flex;
@@ -673,4 +1123,30 @@ input[type=text] {
   color: white;
   text-decoration: none;
   font-size: large;
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .profile_background {
+    padding-bottom: 460px;
+    padding-top: 50px;
+    margin-top: 10px;
+  }
+  .profile_background .profile_container {
+    width: 670px;
+  }
+}
+@media (max-width: 767px) {
+  .profile_background {
+    padding-bottom: 650px;
+    padding-top: 50px;
+    margin-top: 10px;
+  }
+  .profile_background h1 {
+    font-size: x-large;
+  }
+  .profile_background .profile_container {
+    width: 320px;
+    padding-left: 15px;
+    padding-top: 0px;
+  }
 }/*# sourceMappingURL=main.css.map */

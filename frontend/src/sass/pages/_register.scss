@@ -1,8 +1,8 @@
 .register_background {
     background-color: lighten(#FFD7D7, 5%);
-    margin-top: 5px;
-    padding-top: 20px;
-    padding-bottom: 90px;
+    padding-bottom: 100px;
+    padding-top: 130px;
+    margin-top: 20px;
 }
 
 .register_container {
@@ -87,4 +87,35 @@
                 }
 
         }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    
+    .register_background {
+        padding-bottom: 265px;
+        padding-top: 50px;
+        margin-top: 10px;
+    }
+    
+}
+
+@media (max-width: 767px) {
+
+    .register_background {
+        padding-top: 40px;
+        margin-top: 10px;
+    }
+
+    .register_container {
+        width: 320px;
+        h1 {
+            font-size: x-large;
+            padding-bottom: 15px;
+        }
+        .register_form {
+            ul {
+                width: 250px;
+            }
+        }
+    }
 }

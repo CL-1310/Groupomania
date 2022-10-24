@@ -2,6 +2,7 @@ import axios from 'axios'
 import {useState, useEffect} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import Header from "../components/Header"
+import MenuBurger from '../components/Menu-Burger';
 import Footer from "../components/Footer"
 
 
@@ -43,7 +44,9 @@ const Profile = () => {
 
     return (
         <>  
+            <MenuBurger/>
             <Header/>
+
             <div className='profile_background'>
                 <div className='profile_container'>
                     <h1>Profil</h1>

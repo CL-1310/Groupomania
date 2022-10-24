@@ -1,11 +1,11 @@
 import {useState} from 'react'
 import axios from "axios";
 import Header from "../components/Header"
+import MenuBurger from '../components/Menu-Burger';
 import Footer from "../components/Footer"
 import { useNavigate, Link } from 'react-router-dom';
 import "../sass/main.css"
 import 'typeface-lato';
-// import DefaultAvatar from './user-default.jpg';
 
 
 const Register = () => {
@@ -14,11 +14,6 @@ const Register = () => {
     const [pwd, setPwd] = useState("");
     const [validPwd, setValidPwd] = useState(false);
     const [matchPwd, setMatchPwd] = useState("");
-    // const [birthdate, setBirthdate] = useState("")
-    // const [department, setDepartment] = useState("")
-    // const [username, setUsername] = useState("")
-    // const [userAvatarInput, setUserAvatarInput] = useState();
-    // const [avatar, setAvatar] = useState();
     const [errMsg, setErrMsg] = useState("");
     const [success, setSuccess] = useState(false);
     let navigate = useNavigate();
@@ -26,11 +21,6 @@ const Register = () => {
     const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 
-    // const handleUserAvatar = (e) => {
-    //   e.preventDefault();
-    //   setUserAvatarInput(e.target.value)
-    //   setAvatar(e.target.files[0])
-    // }
     const handleSubmit = async (e) => {
       e.preventDefault();
       const checkMail = MAIL_REGEX.test(mail);
@@ -43,9 +33,7 @@ const Register = () => {
       if(checkPassword === true){
         setValidPwd(true)
       }
-      // if (avatar === ""){
-      //   setUserAvatarInput(DefaultAvatar)
-      // }
+
       if(checkMail === true && checkPassword === true){
         axios.post(
           "http://localhost:4000/api/auth/signup",
@@ -55,9 +43,7 @@ const Register = () => {
           setMail("");
           setPwd("");
           setMatchPwd("");
-          // setUsername("");
-          // setDepartment("");
-          // setBirthdate("");
+
           navigate("/login");
         }).catch((err)=>{
           if (!err?.response) {
@@ -74,6 +60,8 @@ const Register = () => {
 
     return (
       <>
+
+        <MenuBurger/>
         <Header/>
 
           <div className='register_background'>

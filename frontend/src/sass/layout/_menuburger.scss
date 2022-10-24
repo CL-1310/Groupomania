@@ -1,0 +1,219 @@
+.menuburger_container {
+    display: none;
+}
+
+// Responsive tablettes
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    
+    .menuburger_container {
+        display: contents;
+        height: 120px;
+        img{
+            height: 70px;
+            width: 370px;
+            margin-left: 35px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        nav {
+            display: contents;
+                a {
+                    text-decoration: none;
+                    color: darken(#FD2D01, 5%);
+                    font-size: larger;
+                        &:hover{
+                            color: lighten(#FD2D01, 5%);
+                        }
+                }
+                .menu-item{
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                    margin-left: 25px;
+                    margin-bottom: 20px;
+                        i {
+                            font-style: normal;
+                                span {
+                                    margin-left: 10px;
+                                }
+                        }
+                }
+        }
+    }
+
+
+    .bm-burger-button {
+        position: fixed;
+        width: 36px;
+        height: 30px;
+        right: 10%;
+        top: 40px;
+      }
+      
+      /* Color/shape of burger icon bars */
+      .bm-burger-bars {
+        background: #FD2D01;
+      }
+      
+      /* Color/shape of burger icon bars on hover*/
+      .bm-burger-bars-hover {
+        background: #4E5166;
+      }
+      
+      /* Position and sizing of clickable cross button */
+      .bm-cross-button {
+        height: 24px;
+        width: 24px;
+      }
+      
+      /* Color/shape of close button cross */
+      .bm-cross {
+        background: #FD2D01;
+      }
+      
+      /*
+      Sidebar wrapper styles
+      Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+      */
+      .bm-menu-wrap {
+        position: fixed;
+        height: 100%;
+      }
+      
+      /* General sidebar styles */
+      .bm-menu {
+        background:  #FFD7D7;
+        padding: 2.5em 1.5em 0;
+        font-size: 1.15em;
+      }
+      
+      /* Morph shape necessary with bubble or elastic */
+      .bm-morph-shape {
+        fill: #FFD7D7;
+      }
+      
+      /* Wrapper for item list */
+      .bm-item-list {
+        color: #b8b7ad;
+        padding: 0.8em;
+      }
+      
+      /* Individual item */
+      .bm-item {
+        display: inline-block;
+      }
+      
+      /* Styling of overlay */
+      .bm-overlay {
+        background: rgba(0, 0, 0, 0.3);
+      }
+}
+
+// Responsive smartphones
+
+@media (max-width: 767px) {
+
+    .menuburger_container {
+        display: contents;
+        height: 80px;
+        img{
+            height: 47px;
+            width: 260px;
+            margin-left: 20px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        nav {
+            display: contents;
+                a {
+                    text-decoration: none;
+                    color: darken(#FD2D01, 5%);
+                    font-size: larger;
+                        &:hover{
+                            color: lighten(#FD2D01, 5%);
+                        }
+                }
+                .menu-item{
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                    margin-left: 25px;
+                    margin-bottom: 20px;
+                        i {
+                            font-style: normal;
+                                span {
+                                    margin-left: 10px;
+                                }
+                        }
+                }
+        }
+    }
+
+
+    .bm-burger-button {
+        position: fixed;
+        width: 31px;
+        height: 25px;
+        right: 8%;
+        top: 30px;
+      }
+      
+      /* Color/shape of burger icon bars */
+      .bm-burger-bars {
+        background: #FD2D01;
+      }
+      
+      /* Color/shape of burger icon bars on hover*/
+      .bm-burger-bars-hover {
+        background: #4E5166;
+      }
+      
+      /* Position and sizing of clickable cross button */
+      .bm-cross-button {
+        height: 24px;
+        width: 24px;
+      }
+      
+      /* Color/shape of close button cross */
+      .bm-cross {
+        background: #FD2D01;
+      }
+      
+      /*
+      Sidebar wrapper styles
+      Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+      */
+      .bm-menu-wrap {
+        position: fixed;
+        height: 100%;
+      }
+      
+      /* General sidebar styles */
+      .bm-menu {
+        background:  #FFD7D7;
+        padding: 2.5em 1.5em 0;
+        font-size: 1.15em;
+      }
+      
+      /* Morph shape necessary with bubble or elastic */
+      .bm-morph-shape {
+        fill: #FFD7D7;
+      }
+      
+      /* Wrapper for item list */
+      .bm-item-list {
+        color: #b8b7ad;
+        padding: 0.8em;
+      }
+      
+      /* Individual item */
+      .bm-item {
+        display: inline-block;
+      }
+      
+      /* Styling of overlay */
+      .bm-overlay {
+        background: rgba(0, 0, 0, 0.3);
+      }
+}

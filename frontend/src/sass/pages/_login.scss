@@ -1,7 +1,7 @@
 .login_background {
     background-color: lighten(#FFD7D7, 5%);
-    margin-top: 5px;
-    padding-top: 20px;
+    padding-top: 130px;
+    margin-top: 20px;
     padding-bottom: 90px;
 }
 
@@ -73,7 +73,34 @@
         }
 }            
 
+// Responsive tablettes
 
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    
+    .login_background {
+        padding-bottom: 420px;
+        padding-top: 50px;
+        margin-top: 10px;
+    }
+    
+}
+
+// Responsive smartphones
+
+@media (max-width: 767px) {
+
+    .login_background {
+        padding-top: 40px;
+        margin-top: 10px;
+    }
+
+    .login-container {
+        h1 {
+            font-size: x-large;
+            padding-bottom: 15px;
+        }
+    }
+}
 
 
 

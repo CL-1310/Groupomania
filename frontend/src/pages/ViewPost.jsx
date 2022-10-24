@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import {useNavigate, Link, useParams } from 'react-router-dom'
 import Header from "../components/Header"
+import MenuBurger from '../components/Menu-Burger';
 import Footer from "../components/Footer"
 import dayjs from 'dayjs'
 import 'dayjs/locale/fr'
@@ -52,6 +53,8 @@ const ViewPost = () => {
 
     return (
         <>  
+
+            <MenuBurger/>
             <Header/>
 
             <div className='viewpost_page'>
@@ -60,7 +63,7 @@ const ViewPost = () => {
                 <div className='viewpost_container'>
                     <div className='viewpost_postdate'> <i className='bi bi-clock'></i> Posté le {dayjs(post.createdAt).format('DD/MM/YYYY à HH:mm:ss')} </div>
                     <h3> Posté par {post.userId}</h3>
-                    <h5>Département : </h5>
+                    <h5> Service : </h5>
                     <h2>{post.title}</h2>
                     <p>{post.description}</p>
                     <img src={post.imageUrl} alt="" />

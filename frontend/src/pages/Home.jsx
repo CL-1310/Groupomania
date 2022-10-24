@@ -2,6 +2,7 @@ import axios from 'axios'
 import {useState, useEffect} from 'react'
 import {Link, useNavigate } from 'react-router-dom'
 import Header from "../components/Header"
+import MenuBurger from '../components/Menu-Burger';
 import Footer from "../components/Footer"
 import logo from "../components/Header/logo.png"
 import dayjs from 'dayjs'
@@ -122,6 +123,7 @@ const AllPosts = () => {
             </div>
             <div className='site'>
 
+                <MenuBurger/>
                 <Header/>
 
                 <div className='home_page'>

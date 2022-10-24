@@ -4,7 +4,7 @@ import logo from "../Header/logo.png"
 function Header() {
     return (
         <div className='header_container'>
-            <nav>
+            <nav className='header_menu'>
                 <img src={logo} alt='Groupomania'/>
                 <div className='header_links'>
                     <Link to="/"> <i className='bi bi-house-door-fill'></i> Accueil </Link>

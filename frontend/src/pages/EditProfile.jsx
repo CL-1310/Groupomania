@@ -1,6 +1,7 @@
 import { useEffect, useState} from 'react';
 import axios from "axios";
 import Header from "../components/Header"
+import MenuBurger from '../components/Menu-Burger';
 import Footer from "../components/Footer"
 import { useNavigate } from 'react-router-dom';
 import "../sass/main.css"
@@ -85,7 +86,9 @@ const EditProfile = () => {
 
     return (
         <>
+            <MenuBurger/>
             <Header/>
+
             <div className='newpost_background'>
                 <div className='newpost_container'>
                     <h1>Éditer le profil</h1>

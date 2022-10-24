@@ -1,8 +1,8 @@
 .profile_background{
     background-color: lighten(#FFD7D7, 5%);
     padding-bottom: 130px;
-    padding-top: 70px;
-    margin-top: 5px;
+    padding-top: 130px;
+    margin-top: 20px;
         h1{
             display: flex;
             align-items: center;
@@ -48,4 +48,38 @@
                 }
                 
         }
+}
+
+// Responsive tablettes
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+
+    .profile_background{
+        padding-bottom: 460px;
+        padding-top: 50px;
+        margin-top: 10px;
+            .profile_container{
+                width: 670px;     
+            }
+    }
+}
+
+// Responsive smartphones
+
+@media (max-width: 767px) {
+
+    .profile_background{
+        padding-bottom: 650px;
+        padding-top: 50px;
+        margin-top: 10px;
+            h1{
+                font-size: x-large;
+            }
+            .profile_container{
+                width: 320px;
+                padding-left: 15px;
+                padding-top: 0px;
+            }
+    }
+
 }

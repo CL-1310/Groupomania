@@ -1,8 +1,8 @@
 .newpost_background {
     background-color: lighten(#FFD7D7, 5%);
-    margin-top: 5px;
-    padding-top: 20px;
-    padding-bottom: 90px;
+    margin-top: 20px;
+    padding-top: 110px;
+    padding-bottom: 100px;
 }
 
 .newpost_container {
@@ -61,4 +61,51 @@ input[type="file"] {
 input[type="text"] {
     height: 30px;
     width: 350px;
+}
+
+// Responsive tablettes
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    
+    .newpost_background {
+        padding-bottom: 190px;
+        padding-top: 40px;
+        margin-top: 10px;
+    }
+
+}
+
+// Responsive smartphones
+
+@media (max-width: 767px) {
+
+    .newpost_background {
+        padding-top: 40px;
+        margin-top: 10px;
+    }
+
+    .newpost_container {
+        width: 320px;
+            h1 {
+                font-size: x-large;
+            }
+            form {
+                & label {
+                    textarea {
+                        width: 240px;
+                    }
+                }
+            }
+    
+    }
+    
+    
+    input[type="file"] {
+        cursor:pointer;
+    }
+    input[type="text"] {
+        height: 30px;
+        width: 240px;
+    }
+
 }

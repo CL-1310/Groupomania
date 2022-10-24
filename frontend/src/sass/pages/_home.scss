@@ -6,9 +6,8 @@
             justify-content: center;
             color:  #FD2D01;
             font-size: xx-large;
-            padding-top: 40px;
+            padding-top: 110px;
             padding-bottom: 20px;
-            margin-top: 4px;
         }
         .home_posts-container{
             display: flex;
@@ -117,6 +116,85 @@
                             color: #FD2D01;
                         }
                 }
+    }
+
+}
+
+// Responsive tablettes
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    
+    .home_page{
+        h1{
+            padding-top: 40px;
+        }
+        .home_posts-container{
+            .home_one-post{
+                width: 670px;
+            }
+        }
+    }
+
+}
+    
+
+
+// Responsive smartphones
+
+@media (max-width: 767px) {
+
+    .home_page{
+        h1{
+            font-size: x-large;
+            padding-top: 40px;
+        }
+        .home_posts-container{
+            .home_one-post{
+                height: auto;
+                width: 320px;
+                padding-left: 15px;
+                    .home_one-post-link {
+                        text-decoration: none;
+                        color: black;
+                        font-size: medium;
+                        .home_postdate {
+                            font-size: x-small;
+                            padding-right: 15px;
+                            padding-bottom: 10px;
+                                i {
+                                    margin-right: 6px;
+                                }
+                        }
+                        h5 {
+                            padding-bottom: 30px;
+                            width: 300px;
+                            font-size: medium;
+                        }
+                        h2 {
+                            font-size: large;
+                            padding-top: 5px;
+                        }
+                        p {
+                            font-size: medium;
+                            padding-top: 3px;
+                        }
+                        img {
+                            padding-bottom: 20px;
+                            width: 290px;
+                            height: auto;
+                        }
+                    }
+                    .home_react-buttons {
+                        margin-top: -35px;
+                        margin-right: 20px;
+                        gap: 9px;
+                        padding-bottom: 20px;
+                    }
+                    
+            }
+
+        }
+    
     }
 
 }
