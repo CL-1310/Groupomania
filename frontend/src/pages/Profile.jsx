@@ -47,28 +47,45 @@ const Profile = () => {
 
     return (
         <>  
-            <MenuBurger/>
-            <Header login={login}/>
 
-            <div className='profile_background'>
-                <div className='profile_container'>
-                    <h1>Profil</h1>
+            <main>
+                
+                <MenuBurger/>
+                <Header login={login}/>
 
-                    <div className='profile_info'>
-                        <h3> Nom d'utilisateur : {user.username}</h3>
-                        <h4>Service : {user.department}</h4>
-                        <h4>Date de naissance : {dayjs(user.birthdate).format('DD/MM/YYYY')}</h4>
-                        <img src={user.avatar} alt="" />
-                        <div className='profile_edit-button'>
-                            <button >
-                                <Link to={"/edit-profile/"+ user._id}>Modifier</Link>
-                            </button>
-                        </div>
+                <div className='profile_background'>
+
+                    <div className='profile_container'>
+
+                        <h1>Profil</h1>
+
+                        <section>
+
+                            <div className='profile_info'>
+
+                                <h3> Nom d'utilisateur : {user.username}</h3>
+
+                                <h4>Service : {user.department}</h4>
+
+                                <h4>Date de naissance : {dayjs(user.birthdate).format('DD/MM/YYYY')}</h4>
+
+                                <img src={user.avatar} alt="" />
+
+                                <div className='profile_edit-button'>
+
+                                    <button >
+                                        <Link to={"/edit-profile/"+ user._id}>Modifier</Link>
+                                    </button>
+
+                                </div>
+                            </div>
+                        </section>
                     </div>
                 </div>
-            </div>
 
-            <Footer/>
+                <Footer/>
+
+            </main>
         </>
     )
 }

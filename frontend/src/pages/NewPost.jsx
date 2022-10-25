@@ -87,56 +87,73 @@ const NewPost = () => {
 
     return (
         <>
-            <MenuBurger/>
-            <Header login={login}/>
 
-            <div className='newpost_background'>
-                <div className='newpost_container'>
-                    <h1>Nouveau post</h1>
+            <main>
 
-                    <section>
-                        <form onSubmit={postSubmit} encType="multipart/form-data">
-                            <label htmlFor="title" className='newpost_title'>
-                                Titre :
-                                <input
-                                    type="text"
-                                    autoComplete="off"
-                                    onChange={(e) => setTitle(e.target.value)}
-                                    value={title}
-                                    required
-                                />
-                            </label>
-                            
-                            <label htmlFor="description" className='newpost_description'>
-                                Description :
-                                <textarea
-                                    type="text"
-                                    onChange={(e) => setDescription(e.target.value)}
-                                    value={description}
-                                    required
-                                />
-                            </label>
-                            
-                            <label htmlFor="imagePost" className='newpost_fileupload'>
-                                Ajouter une image :
-                                <input
-                                    type="file"
-                                    id="imagePost"
-                                    name="imagePost"
-                                    accept="image/png,image/jpeg,image/jpg,image/gif"
-                                    onChange={handlePostImg}
-                                    defaultValue={postImgInput}
-                                />
-                            </label>
-                            
-                            <button className='newpost_button'>
-                                Publier
-                            </button>
-                        </form>
-                    </section>
+                <MenuBurger/>
+                <Header login={login}/>
+
+                <div className='newpost_background'>
+
+                    <div className='newpost_container'>
+
+                        <h1>Nouveau post</h1>
+
+                        <section>
+
+                            <form onSubmit={postSubmit} encType="multipart/form-data">
+
+                                <label htmlFor="title" className='newpost_title'>
+
+                                    Titre :
+
+                                    <input
+                                        type="text"
+                                        autoComplete="off"
+                                        onChange={(e) => setTitle(e.target.value)}
+                                        value={title}
+                                        required
+                                    />
+                                </label>
+                                
+                                <label htmlFor="description" className='newpost_description'>
+
+                                    Description :
+
+                                    <textarea
+                                        type="text"
+                                        onChange={(e) => setDescription(e.target.value)}
+                                        value={description}
+                                        required
+                                    />
+                                </label>
+                                
+                                <label htmlFor="imagePost" className='newpost_fileupload'>
+
+                                    Ajouter une image :
+
+                                    <input
+                                        type="file"
+                                        id="imagePost"
+                                        name="imagePost"
+                                        accept="image/png,image/jpeg,image/jpg,image/gif"
+                                        onChange={handlePostImg}
+                                        defaultValue={postImgInput}
+                                    />
+                                </label>
+                                
+                                <button className='newpost_button'>
+                                    Publier
+                                </button>
+
+                            </form>
+                        </section>
+                    </div>
                 </div>
-            </div>
-            <Footer/>
+
+                <Footer/>
+                
+            </main>
         </> 
     );
 };

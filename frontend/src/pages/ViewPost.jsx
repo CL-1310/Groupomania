@@ -51,35 +51,52 @@ const ViewPost = () => {
 
     return (
         <>  
-
-            <MenuBurger/>
-            <Header login={login}/>
-
-            <div className='viewpost_page'>
-                <h1 id='viewpost_h1'>Publication</h1>
-
-                <div className='scroll-to-top'>
-                    <a href='#viewpost_h1' className='button-scrollToTop'>
-                        <i className='bi bi-arrow-up-circle-fill'></i>
-                    </a>
-		        </div>
-
-                <div className='viewpost_container'>
-                    <div className='viewpost_postdate'> <i className='bi bi-clock'></i> Posté le {dayjs(post.createdAt).format('DD/MM/YYYY à HH:mm:ss')} </div>
-                    <h3> Posté par {post.userId}</h3>
-                    <h2>{post.title}</h2>
-                    <p>{post.description}</p>
-                    <img src={post.imageUrl} alt="" />
-                    <div className='viewpost_button'>
-                        <button>
-                            <Link to="/"> Retour </Link>
-                        </button>
-                    </div>         
-                </div>
+            <main>
                 
-            </div>
+                <MenuBurger/>
+                <Header login={login}/>
 
-            <Footer/>
+                <div className='viewpost_page'>
+
+                    <h1 id='viewpost_h1'>Publication</h1>
+
+                    <section>
+
+                        <div className='scroll-to-top'>
+
+                            <a href='#viewpost_h1' className='button-scrollToTop'>
+                                <i className='bi bi-arrow-up-circle-fill'></i>
+                            </a>
+
+                        </div>
+
+                        <div className='viewpost_container'>
+
+                            <div className='viewpost_postdate'> <i className='bi bi-clock'></i> Posté le {dayjs(post.createdAt).format('DD/MM/YYYY à HH:mm:ss')} </div>
+                            
+                            <h3> Posté par {post.userId}</h3>
+                            
+                            <h2>{post.title}</h2>
+                            
+                            <p>{post.description}</p>
+                            
+                            <img src={post.imageUrl} alt="" />
+                            
+                            <div className='viewpost_button'>
+                            
+                                <button>
+                                    <Link to="/"> Retour </Link>
+                                </button>
+                            
+                            </div>         
+                        </div>
+                    </section>
+                </div>
+
+                <Footer/>
+
+            </main>
+
         </>
     )
 }

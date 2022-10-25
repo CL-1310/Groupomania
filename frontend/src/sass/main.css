@@ -1127,31 +1127,31 @@ input[type=text] {
   padding-top: 10px;
   margin: auto;
 }
-.profile_background .profile_container img {
+.profile_background .profile_container .profile_info img {
   position: relative;
-  bottom: 65%;
   left: 65%;
+  bottom: 135px;
   height: 130px;
   width: 130px;
   border-radius: 50%;
 }
-.profile_background .profile_container .profile_edit-button {
+.profile_background .profile_container .profile_info .profile_edit-button {
   display: flex;
   justify-content: center;
-  margin-top: -100px;
+  margin-top: -90px;
   margin-left: -50px;
 }
-.profile_background .profile_container .profile_edit-button button {
+.profile_background .profile_container .profile_info .profile_edit-button button {
   background-color: black;
   border-radius: 20px;
   width: 110px;
   height: 35px;
 }
-.profile_background .profile_container .profile_edit-button button:hover {
+.profile_background .profile_container .profile_info .profile_edit-button button:hover {
   background-color: #FD2D01;
   cursor: pointer;
 }
-.profile_background .profile_container .profile_edit-button button a {
+.profile_background .profile_container .profile_info .profile_edit-button button a {
   color: white;
   text-decoration: none;
   font-size: large;
@@ -1168,7 +1168,7 @@ input[type=text] {
 }
 @media (max-width: 767px) {
   .profile_background {
-    padding-bottom: 650px;
+    padding-bottom: 250px;
     margin-top: 10px;
   }
   .profile_background h1 {
@@ -1180,17 +1180,17 @@ input[type=text] {
     padding-left: 15px;
     padding-top: 0px;
   }
-  .profile_background .profile_container h3 {
+  .profile_background .profile_container .profile_info h3 {
     margin-top: 100px;
   }
-  .profile_background .profile_container img {
+  .profile_background .profile_container .profile_info img {
     position: relative;
-    bottom: 80%;
     left: 35%;
+    bottom: 240px;
     height: 90px;
     width: 90px;
   }
-  .profile_background .profile_container .profile_edit-button {
+  .profile_background .profile_container .profile_info .profile_edit-button {
     display: flex;
     justify-content: center;
     margin-top: -50px;

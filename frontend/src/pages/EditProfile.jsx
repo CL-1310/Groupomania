@@ -89,64 +89,79 @@ const EditProfile = () => {
 
     return (
         <>
-            <MenuBurger/>
-            <Header login={login}/>
 
-            <div className='newpost_background'>
-                <div className='newpost_container'>
-                    <h1>Éditer le profil</h1>
+            <main>
 
-                    <section>
-                        <form onSubmit={userUpdate} encType="multipart/form-data">
-                            <label htmlFor="username" className='newpost_title'>
-                                Nom d'utilisateur :
-                                <input
-                                    type="text"
-                                    onChange={(e) => setUsername(e.target.value)}
-                                    defaultValue={user.username}
-                                    required
-                                />
-                            </label>
-                            
-                            <label htmlFor="department" className='newpost_description'>
-                                Service :
-                                <input
-                                    type="text"
-                                    onChange={(e) => setDepartment(e.target.value)}
-                                    defaultValue={user.department}
-                                    required
-                                />
-                            </label>
+                <MenuBurger/>
+                <Header login={login}/>
 
-                            <label htmlFor="birthdate" className='newpost_description'>
-                                Date de naissance :
-                                <input
-                                    type="date"
-                                    onChange={(e) => setBirthdate(e.target.value)}
-                                    defaultValue={user.birthdate}
-                                />
-                            </label>
-                            
-                            <label htmlFor="avatar" className='newpost_fileupload'>
-                                Ajouter un avatar :
-                                <input
-                                    type="file"
-                                    id="avatar"
-                                    name="avatar"
-                                    accept="image/png,image/jpeg,image/jpg,image/gif"
-                                    onChange={handleUserAvatar}
-                                    defaultValue={userAvatarInput}
-                                />
-                            </label>
-                            
-                            <button className='newpost_button'>
-                                Publier
-                            </button>
-                        </form>
-                    </section>
+                <div className='newpost_background'>
+
+                    <div className='newpost_container'>
+
+                        <h1>Éditer le profil</h1>
+
+                        <section>
+
+                            <form onSubmit={userUpdate} encType="multipart/form-data">
+
+                                <label htmlFor="username" className='newpost_title'>
+
+                                    Nom d'utilisateur :
+                                    <input
+                                        type="text"
+                                        onChange={(e) => setUsername(e.target.value)}
+                                        defaultValue={user.username}
+                                        required
+                                    />
+                                </label>
+                                
+                                <label htmlFor="department" className='newpost_description'>
+
+                                    Service :
+                                    <input
+                                        type="text"
+                                        onChange={(e) => setDepartment(e.target.value)}
+                                        defaultValue={user.department}
+                                        required
+                                    />
+                                </label>
+
+                                <label htmlFor="birthdate" className='newpost_description'>
+
+                                    Date de naissance :
+                                    <input
+                                        type="date"
+                                        onChange={(e) => setBirthdate(e.target.value)}
+                                        defaultValue={user.birthdate}
+                                    />
+                                </label>
+                                
+                                <label htmlFor="avatar" className='newpost_fileupload'>
+
+                                    Ajouter un avatar :
+                                    <input
+                                        type="file"
+                                        id="avatar"
+                                        name="avatar"
+                                        accept="image/png,image/jpeg,image/jpg,image/gif"
+                                        onChange={handleUserAvatar}
+                                        defaultValue={userAvatarInput}
+                                    />
+                                </label>
+                                
+                                <button className='newpost_button'>
+                                    Publier
+                                </button>
+
+                            </form>
+                        </section>
+                    </div>
                 </div>
-            </div>
-            <Footer/>
+
+                <Footer/>
+                
+            </main>
         </> 
     );
 

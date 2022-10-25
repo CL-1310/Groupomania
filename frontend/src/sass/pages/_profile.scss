@@ -27,10 +27,11 @@
             padding-left: 40px;
             padding-top: 10px;
             margin: auto;
+            .profile_info {
                 img {
                     position: relative;
-                    bottom: 65%;
                     left: 65%;
+                    bottom: 135px;
                     height: 130px;
                     width: 130px;
                     border-radius: 50%;
@@ -38,7 +39,7 @@
                 .profile_edit-button {
                     display: flex;
                     justify-content: center;
-                    margin-top: -100px;
+                    margin-top: -90px;
                     margin-left: -50px;
                         button {
                             background-color: black;
@@ -56,6 +57,8 @@
                                 }
                         }
                 }
+            }
+
                 
                 
         }
@@ -79,7 +82,7 @@
 @media (max-width: 767px) {
 
     .profile_background{
-        padding-bottom: 650px;
+        padding-bottom: 250px;
         margin-top: 10px;
             h1{
                 font-size: x-large;
@@ -89,23 +92,24 @@
                 width: 320px;
                 padding-left: 15px;
                 padding-top: 0px;
-                    h3 {
-                        margin-top: 100px;
-                    }
-                    img {
-                        position: relative;
-                        bottom: 80%;
-                        left: 35%;
-                        height: 90px;
-                        width: 90px;
-                    }
-                    .profile_edit-button {
-                        display: flex;
-                        justify-content: center;
-                        margin-top: -50px;
-                        margin-left: -50px;
-                    }
-            }
+                    .profile_info {
+                        h3 {
+                            margin-top: 100px;
+                        }
+                        img {
+                            position: relative;
+                            left: 35%;
+                            bottom: 240px;
+                            height: 90px;
+                            width: 90px;
+                        }
+                        .profile_edit-button {
+                            display: flex;
+                            justify-content: center;
+                            margin-top: -50px;
+                            margin-left: -50px;
+                        }
+            }       }
     }
 
 }
