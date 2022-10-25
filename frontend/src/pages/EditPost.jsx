@@ -18,8 +18,10 @@ const EditPost = () => {
     const [success, setSuccess] = useState(false);
     const [postImgInput, setPostImgInput] = useState();
     const [imgPostFile, setImgPostFile] = useState();
-    const POST_REGEX = /^.{2,}$/
+    const [login, setLogin] = useState(false)
+    const POST_REGEX = /^.{2,}$/gm
     const urlParams = useParams()
+
 
     let navigate = useNavigate();
 
@@ -55,6 +57,7 @@ const EditPost = () => {
             setErrMsg("Vous ne disposez pas des authorisations nécéssaires pour pouvoir modifier cette publication");
         }
         setUserId(localStorage.getItem("userConnected"))
+        setLogin(true)
         getPost()       
     },[navigate]);
 
@@ -82,7 +85,6 @@ const EditPost = () => {
         }
 
         if(checkTitle === true && checkDescription === true){
-            console.log("checkComplete")
             const formData = new FormData()
             formData.append("title",title)
             formData.append("description",description)
@@ -111,7 +113,7 @@ const EditPost = () => {
     return (
         <>
             <MenuBurger/>
-            <Header/>
+            <Header login={login}/>
 
             <div className='newpost_background'>
                 <div className='newpost_container'>

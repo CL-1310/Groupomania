@@ -49,7 +49,7 @@ exports.login = (req, res, next) => {
 }
 
 exports.getOneUser = (req, res, next) => {
-    User.findOne({ id: req.params.id })
+    User.findOne({ _id: req.params.id })
         .then(user => {
             if (!user) {
                 return res.status(401).json({ message: 'Identifiant incorrect'});
@@ -60,7 +60,6 @@ exports.getOneUser = (req, res, next) => {
 }
 
 exports.editOneUser = (req, res, next) => {
-    console.log(req.body)
     const body = req.body
     const userObject = req.file ?
     {

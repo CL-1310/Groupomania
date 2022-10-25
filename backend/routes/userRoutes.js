@@ -10,6 +10,6 @@ const userController = require("../controllers/userController")
 router.post("/signup", passwordValidator, multer, userController.signup)
 router.post("/login", userController.login)
 router.get("/user/:id", auth, multer, userController.getOneUser)
-router.put("/user-id/:id", auth, multer, userController.editOneUser)
+router.put("/user/:id", auth, multer, userController.editOneUser)
 
 module.exports = router

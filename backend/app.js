@@ -14,6 +14,8 @@ const helmet = require("helmet");
 
 const path = require("path")
 
+const  cors = require('cors');
+
 mongoose.connect(`mongodb+srv://${process.env.DATABASE_USERNAME}:${process.env.DATABASE_PASSWORD}@cluster0.ughiqby.mongodb.net/Groupomania?retryWrites=true&w=majority`,
   { useNewUrlParser: true,
     useUnifiedTopology: true })
@@ -28,6 +30,7 @@ app.use((req, res, next) => {
   });
 
 app.use(express.json())
+app.use(cors())
 app.use("/images", express.static(path.join(__dirname,"images")))
 app.use("/avatars", express.static(path.join(__dirname, "avatars")));
 

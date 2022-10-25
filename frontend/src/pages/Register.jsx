@@ -24,12 +24,10 @@ const Register = () => {
     const handleSubmit = async (e) => {
       e.preventDefault();
       const checkMail = MAIL_REGEX.test(mail);
-      console.log(checkMail);
       if(checkMail === true){
         setValidMail(true)
       }
       const checkPassword = PWD_REGEX.test(pwd)
-      console.log(checkPassword);
       if(checkPassword === true){
         setValidPwd(true)
       }

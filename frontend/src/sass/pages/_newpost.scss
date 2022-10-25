@@ -1,5 +1,5 @@
 .newpost_background {
-    background-color: lighten(#FFD7D7, 5%);
+    @include background;
     margin-top: 20px;
     padding-top: 110px;
     padding-bottom: 100px;
@@ -8,7 +8,7 @@
 .newpost_container {
     margin: 0 auto;
     padding-bottom: 50px;
-    box-shadow: 1px 3px 15px #d1d1d1;
+    @include boxshadow;
     width: 500px;
     border-radius: 20px;
     background-color: white;
@@ -16,7 +16,7 @@
         h1 {
             padding-top: 35px;
             padding-bottom: 20px;
-            color: #FD2D01;
+            color: $colour-primary;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -46,7 +46,7 @@
                     width: 100px;
                     height: 35px;
                         &:hover{
-                            background-color: #FD2D01;
+                            background-color: $colour-primary;
                             cursor: pointer;
                         }
                 }
@@ -69,7 +69,6 @@ input[type="text"] {
     
     .newpost_background {
         padding-bottom: 190px;
-        padding-top: 40px;
         margin-top: 10px;
     }
 
@@ -80,7 +79,6 @@ input[type="text"] {
 @media (max-width: 767px) {
 
     .newpost_background {
-        padding-top: 40px;
         margin-top: 10px;
     }
 

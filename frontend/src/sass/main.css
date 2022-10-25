@@ -162,13 +162,18 @@ nav .header_links i {
 @media screen and (min-width: 768px) and (max-width: 991px) {
   .menuburger_container {
     display: contents;
-    height: 120px;
+    height: 100px;
+    width: 991px;
+    display: block;
+    position: fixed;
+    margin-top: -25px;
+    background-color: white;
   }
   .menuburger_container img {
     height: 70px;
     width: 370px;
     margin-left: 35px;
-    margin-top: 20px;
+    margin-top: 22px;
     margin-bottom: 10px;
   }
   .menuburger_container nav {
@@ -200,7 +205,7 @@ nav .header_links i {
     width: 36px;
     height: 30px;
     right: 10%;
-    top: 40px;
+    top: 35px;
   }
   /* Color/shape of burger icon bars */
   .bm-burger-bars {
@@ -255,6 +260,11 @@ nav .header_links i {
   .menuburger_container {
     display: contents;
     height: 80px;
+    width: 767px;
+    display: block;
+    position: fixed;
+    background-color: white;
+    margin-top: -20px;
   }
   .menuburger_container img {
     height: 47px;
@@ -292,7 +302,7 @@ nav .header_links i {
     width: 31px;
     height: 25px;
     right: 8%;
-    top: 30px;
+    top: 28px;
   }
   /* Color/shape of burger icon bars */
   .bm-burger-bars {
@@ -454,6 +464,8 @@ nav .header_links i {
   justify-content: center;
   gap: 50px;
   padding-bottom: 90px;
+  -webkit-animation: posts-slide 3000ms;
+          animation: posts-slide 3000ms;
 }
 .home_page .home_posts-container .home_one-post {
   text-decoration: none;
@@ -480,7 +492,7 @@ nav .header_links i {
 .home_page .home_posts-container .home_one-post .home_one-post-link .home_postdate i {
   margin-right: 6px;
 }
-.home_page .home_posts-container .home_one-post .home_one-post-link h5 {
+.home_page .home_posts-container .home_one-post .home_one-post-link h3 {
   padding-bottom: 30px;
   border: 3px dotted #FFD7D7;
   border-top: none;
@@ -493,8 +505,21 @@ nav .header_links i {
   padding-top: 10px;
 }
 .home_page .home_posts-container .home_one-post .home_one-post-link p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
   font-size: medium;
   padding-top: 10px;
+  padding-right: 90px;
+}
+.home_page .home_posts-container .home_one-post .home_one-post-link .home_more {
+  color: black;
+  font-size: small;
+  text-decoration: underline;
+}
+.home_page .home_posts-container .home_one-post .home_one-post-link .home_more:hover {
+  color: #ff7171;
 }
 .home_page .home_posts-container .home_one-post .home_one-post-link img {
   display: block;
@@ -554,10 +579,28 @@ nav .header_links i {
   color: #FD2D01;
 }
 
-@media screen and (min-width: 768px) and (max-width: 991px) {
-  .home_page h1 {
-    padding-top: 40px;
+@-webkit-keyframes posts-slide {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
   }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes posts-slide {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
   .home_page .home_posts-container .home_one-post {
     width: 670px;
   }
@@ -565,7 +608,6 @@ nav .header_links i {
 @media (max-width: 767px) {
   .home_page h1 {
     font-size: x-large;
-    padding-top: 40px;
   }
   .home_page .home_posts-container .home_one-post {
     height: auto;
@@ -585,7 +627,7 @@ nav .header_links i {
   .home_page .home_posts-container .home_one-post .home_one-post-link .home_postdate i {
     margin-right: 6px;
   }
-  .home_page .home_posts-container .home_one-post .home_one-post-link h5 {
+  .home_page .home_posts-container .home_one-post .home_one-post-link h3 {
     padding-bottom: 30px;
     width: 300px;
     font-size: medium;
@@ -620,7 +662,7 @@ nav .header_links i {
 .login-container {
   margin: 0 auto;
   padding-bottom: 50px;
-  box-shadow: 1px 3px 15px #d1d1d1;
+  box-shadow: 7px 7px 10px 6px #d1d1d1;
   width: 330px;
   border-radius: 20px;
   background-color: white;
@@ -687,13 +729,11 @@ nav .header_links i {
 @media screen and (min-width: 768px) and (max-width: 991px) {
   .login_background {
     padding-bottom: 420px;
-    padding-top: 50px;
     margin-top: 10px;
   }
 }
 @media (max-width: 767px) {
   .login_background {
-    padding-top: 40px;
     margin-top: 10px;
   }
   .login-container h1 {
@@ -710,7 +750,7 @@ nav .header_links i {
 
 .register_container {
   padding-bottom: 50px;
-  box-shadow: 1px 3px 15px #d1d1d1;
+  box-shadow: 7px 7px 10px 6px #d1d1d1;
   border-radius: 20px;
   width: 430px;
   margin: 0 auto;
@@ -794,13 +834,11 @@ nav .header_links i {
 @media screen and (min-width: 768px) and (max-width: 991px) {
   .register_background {
     padding-bottom: 265px;
-    padding-top: 50px;
     margin-top: 10px;
   }
 }
 @media (max-width: 767px) {
   .register_background {
-    padding-top: 40px;
     margin-top: 10px;
   }
   .register_container {
@@ -824,7 +862,7 @@ nav .header_links i {
 .newpost_container {
   margin: 0 auto;
   padding-bottom: 50px;
-  box-shadow: 1px 3px 15px #d1d1d1;
+  box-shadow: 7px 7px 10px 6px #d1d1d1;
   width: 500px;
   border-radius: 20px;
   background-color: white;
@@ -880,13 +918,11 @@ input[type=text] {
 @media screen and (min-width: 768px) and (max-width: 991px) {
   .newpost_background {
     padding-bottom: 190px;
-    padding-top: 40px;
     margin-top: 10px;
   }
 }
 @media (max-width: 767px) {
   .newpost_background {
-    padding-top: 40px;
     margin-top: 10px;
   }
   .newpost_container {
@@ -920,10 +956,23 @@ input[type=text] {
   padding-bottom: 20px;
   margin-top: 20px;
 }
+.viewpost_page .scroll-to-top {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  opacity: 1;
+  z-index: 500;
+}
+.viewpost_page .scroll-to-top i {
+  font-size: xx-large;
+  color: #FD2D01;
+}
 .viewpost_page .viewpost_container {
   display: flex;
   flex-direction: column;
-  padding-bottom: 90px;
+  padding-bottom: 50px;
   text-decoration: none;
   color: black;
   background-color: white;
@@ -945,7 +994,7 @@ input[type=text] {
 .viewpost_page .viewpost_container .viewpost_postdate i {
   margin-right: 6px;
 }
-.viewpost_page .viewpost_container h5 {
+.viewpost_page .viewpost_container h3 {
   padding-bottom: 30px;
   border: 3px dotted #FFD7D7;
   border-top: none;
@@ -958,8 +1007,10 @@ input[type=text] {
   padding-top: 10px;
 }
 .viewpost_page .viewpost_container p {
+  white-space: break-spaces;
   font-size: medium;
   padding-top: 10px;
+  padding-right: 150px;
 }
 .viewpost_page .viewpost_container img {
   display: block;
@@ -969,65 +1020,36 @@ input[type=text] {
   width: auto;
   height: 250px;
   padding-top: 25px;
-  padding-bottom: 30px;
+  padding-bottom: 70px;
 }
-.viewpost_page .viewpost_container button {
-  background-color: #FFD7D7;
-  color: #2d2f3b;
-  border-radius: 20px;
-}
-.viewpost_page .viewpost_container .viewpost_editerase-buttons {
-  font-size: small;
-  margin-top: 10px;
-}
-.viewpost_page .viewpost_container .viewpost_editerase-buttons button {
-  width: 80px;
-  height: 30px;
-}
-.viewpost_page .viewpost_container .viewpost_editerase-buttons button:hover {
-  background-color: #ffbebe;
-  cursor: pointer;
-}
-.viewpost_page .viewpost_container .viewpost_editerase-buttons a {
-  text-decoration: none;
-  color: #2d2f3b;
-}
-.viewpost_page .viewpost_container .viewpost_react-buttons {
-  margin-top: -40px;
+.viewpost_page .viewpost_container .viewpost_button {
   display: flex;
-  align-items: flex-end;
-  justify-content: end;
-  margin-right: 40px;
-  margin-bottom: -60px;
-  gap: 15px;
+  justify-content: center;
 }
-.viewpost_page .viewpost_container .viewpost_react-buttons button {
+.viewpost_page .viewpost_container .viewpost_button button {
+  background-color: black;
+  border-radius: 20px;
+  width: 140px;
+  height: 35px;
+}
+.viewpost_page .viewpost_container .viewpost_button button:hover {
+  background-color: #FD2D01;
+}
+.viewpost_page .viewpost_container .viewpost_button button a {
+  text-decoration: none;
   font-size: large;
-  width: 40px;
-  height: 40px;
-}
-.viewpost_page .viewpost_container .viewpost_react-buttons .scroll-to-top {
-  width: 40px;
-  height: 40px;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  opacity: 1;
-  z-index: 500;
-}
-.viewpost_page .viewpost_container .viewpost_react-buttons .scroll-to-top i {
-  font-size: xx-large;
-  color: #FD2D01;
+  color: white;
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
   .viewpost_page h1 {
-    font-size: x-large;
-    padding-top: 40px;
     margin-top: 10px;
   }
   .viewpost_page .viewpost_container {
     width: 670px;
+  }
+  .viewpost_page .viewpost_container p {
+    padding-right: 30px;
   }
   .viewpost_page .viewpost_container img {
     width: auto;
@@ -1038,7 +1060,6 @@ input[type=text] {
 @media (max-width: 767px) {
   .viewpost_page h1 {
     font-size: x-large;
-    padding-top: 40px;
     margin-top: 10px;
   }
   .viewpost_page .viewpost_container {
@@ -1050,7 +1071,7 @@ input[type=text] {
     padding-right: 15px;
     padding-bottom: 10px;
   }
-  .viewpost_page .viewpost_container h5 {
+  .viewpost_page .viewpost_container h3 {
     width: 300px;
     font-size: medium;
   }
@@ -1062,6 +1083,7 @@ input[type=text] {
   .viewpost_page .viewpost_container p {
     font-size: medium;
     padding-top: 0px;
+    padding-right: 15px;
   }
   .viewpost_page .viewpost_container img {
     padding-bottom: 25px;
@@ -1105,21 +1127,31 @@ input[type=text] {
   padding-top: 10px;
   margin: auto;
 }
-.profile_background .profile_container button {
+.profile_background .profile_container img {
+  position: relative;
+  bottom: 65%;
+  left: 65%;
+  height: 130px;
+  width: 130px;
+  border-radius: 50%;
+}
+.profile_background .profile_container .profile_edit-button {
   display: flex;
-  align-items: center;
   justify-content: center;
+  margin-top: -100px;
+  margin-left: -50px;
+}
+.profile_background .profile_container .profile_edit-button button {
   background-color: black;
   border-radius: 20px;
   width: 110px;
   height: 35px;
-  margin: auto;
 }
-.profile_background .profile_container button:hover {
+.profile_background .profile_container .profile_edit-button button:hover {
   background-color: #FD2D01;
   cursor: pointer;
 }
-.profile_background .profile_container button a {
+.profile_background .profile_container .profile_edit-button button a {
   color: white;
   text-decoration: none;
   font-size: large;
@@ -1128,7 +1160,6 @@ input[type=text] {
 @media screen and (min-width: 768px) and (max-width: 991px) {
   .profile_background {
     padding-bottom: 460px;
-    padding-top: 50px;
     margin-top: 10px;
   }
   .profile_background .profile_container {
@@ -1138,15 +1169,31 @@ input[type=text] {
 @media (max-width: 767px) {
   .profile_background {
     padding-bottom: 650px;
-    padding-top: 50px;
     margin-top: 10px;
   }
   .profile_background h1 {
     font-size: x-large;
   }
   .profile_background .profile_container {
+    height: 350px;
     width: 320px;
     padding-left: 15px;
     padding-top: 0px;
+  }
+  .profile_background .profile_container h3 {
+    margin-top: 100px;
+  }
+  .profile_background .profile_container img {
+    position: relative;
+    bottom: 80%;
+    left: 35%;
+    height: 90px;
+    width: 90px;
+  }
+  .profile_background .profile_container .profile_edit-button {
+    display: flex;
+    justify-content: center;
+    margin-top: -50px;
+    margin-left: -50px;
   }
 }/*# sourceMappingURL=main.css.map */

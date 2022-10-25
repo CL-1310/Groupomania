@@ -4,6 +4,8 @@ import {Link, useNavigate} from 'react-router-dom'
 import Header from "../components/Header"
 import MenuBurger from '../components/Menu-Burger';
 import Footer from "../components/Footer"
+import dayjs from 'dayjs'
+import 'dayjs/locale/fr'
 
 
 const Profile = () => {
@@ -12,9 +14,10 @@ const Profile = () => {
     const [user, setUser] = useState([])
     const [token, setToken] = useState(localStorage.getItem("userToken"))
     const [errMsg, setErrMsg] = useState("");
+    const [login, setLogin] = useState(false)
     let navigate = useNavigate();
 
-    const getProfile = (userId) => {
+    const getProfile = () => {
         axios({
             method:"get",
             url:(`http://localhost:4000/api/auth/user/${userId}`),
@@ -23,7 +26,6 @@ const Profile = () => {
         })
         .then(response=>{
             setUser(response.data)
-
         }).catch(err=>{
             if (!err?.response) {
                 setErrMsg("No Server Response");
@@ -39,13 +41,14 @@ const Profile = () => {
 
         setUserId(localStorage.getItem("userConnected"))
         setToken(localStorage.getItem("userToken"))
+        setLogin(true)
         getProfile()  
     },[navigate]);
 
     return (
         <>  
             <MenuBurger/>
-            <Header/>
+            <Header login={login}/>
 
             <div className='profile_background'>
                 <div className='profile_container'>
@@ -54,11 +57,13 @@ const Profile = () => {
                     <div className='profile_info'>
                         <h3> Nom d'utilisateur : {user.username}</h3>
                         <h4>Service : {user.department}</h4>
-                        <h4>Date de naissance : {user.birthdate}</h4>
+                        <h4>Date de naissance : {dayjs(user.birthdate).format('DD/MM/YYYY')}</h4>
                         <img src={user.avatar} alt="" />
-                        <button className='profile_edit-button'>
-                            <Link to={"/edit-profile/"+user._id}>Modifier</Link>
-                        </button>
+                        <div className='profile_edit-button'>
+                            <button >
+                                <Link to={"/edit-profile/"+ user._id}>Modifier</Link>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

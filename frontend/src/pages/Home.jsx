@@ -19,6 +19,7 @@ const AllPosts = () => {
     const [dislike, setDislike] = useState(false)
     const [token, setToken] = useState(localStorage.getItem("userToken"))
     const [errMsg, setErrMsg] = useState("");
+    const [login, setLogin] = useState(false)
     let navigate = useNavigate();
 
 
@@ -28,7 +29,8 @@ const AllPosts = () => {
         }
         setUserId(localStorage.getItem("userConnected"))
         setToken(localStorage.getItem("userToken"))
-        getPosts()       
+        setLogin(true)
+        getPosts()
     },[navigate]);
 
 
@@ -71,7 +73,6 @@ const AllPosts = () => {
     }
 
     const Like = (postId) => {
-        console.log(userId)
         const likeStatus = 1
         axios({
             method:"post",
@@ -113,6 +114,7 @@ const AllPosts = () => {
         }
     )}
 
+
     return (
 
         <>
@@ -124,7 +126,7 @@ const AllPosts = () => {
             <div className='site'>
 
                 <MenuBurger/>
-                <Header/>
+                <Header login={login}/>
 
                 <div className='home_page'>
                     <h1 id='publications'>Publications</h1>
@@ -141,9 +143,9 @@ const AllPosts = () => {
                                     <Link to={"/post/"+ post._id} className='home_one-post-link' >
                                         <div className='home_postdate'> <i className='bi bi-clock'></i> Posté le {dayjs(post.createdAt).format('DD/MM/YYYY à HH:mm:ss')}</div>
                                         <h3> Posté par {post.userId}</h3>
-                                        <h5> Service : </h5>
                                         <h2>{post.title}</h2>
-                                        <p>{post.description}</p>
+                                        <p> {post.description} </p>
+                                        <span className='home_more'> Afficher le post complet </span>
                                         <img src={post.imageUrl} alt="" />    
                                     </Link>
                                     <div className='home_editerase-buttons'>
@@ -163,7 +165,10 @@ const AllPosts = () => {
                                 </div>
                             )
                             
-                        }  
+                        } 
+                        <div>
+                        
+                        </div> 
 
                     </div>
                 </div>

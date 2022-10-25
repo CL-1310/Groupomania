@@ -16,10 +16,15 @@ const EditProfile = () => {
     const [username, setUsername] = useState("")
     const [userAvatarInput, setUserAvatarInput] = useState();
     const [avatar, setAvatar] = useState();
+    const [login, setLogin] = useState(false)
 
     let navigate = useNavigate();
 
-    const getProfile = (userId) => {
+    useEffect(() => {
+        getProfile() 
+    });
+
+    const getProfile = () => {
         axios({
             method:"get",
             url:(`http://localhost:4000/api/auth/user/${userId}`),
@@ -44,12 +49,10 @@ const EditProfile = () => {
         if(!localStorage.getItem("userConnected")){
             navigate("/login");
         }
-
         setUserId(localStorage.getItem("userConnected"))
         setToken(localStorage.getItem("userToken"))
-        getProfile()  
+        setLogin(true)
     },[navigate]);
-
     
     const handleUserAvatar = (e) => {
         e.preventDefault();
@@ -65,7 +68,7 @@ const EditProfile = () => {
         userData.append("department",department)
         userData.append("avatar",avatar)
         axios.put(
-            `http://localhost:4000/api/posts/${user.id}`,
+            `http://localhost:4000/api/auth/user/${userId}`,
             userData,
             {headers:{"Authorization":`Bearer ${token}`}}
 
@@ -87,7 +90,7 @@ const EditProfile = () => {
     return (
         <>
             <MenuBurger/>
-            <Header/>
+            <Header login={login}/>
 
             <div className='newpost_background'>
                 <div className='newpost_container'>
@@ -121,7 +124,6 @@ const EditProfile = () => {
                                     type="date"
                                     onChange={(e) => setBirthdate(e.target.value)}
                                     defaultValue={user.birthdate}
-                                    required
                                 />
                             </label>
                             

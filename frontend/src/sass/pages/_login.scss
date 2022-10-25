@@ -1,5 +1,5 @@
 .login_background {
-    background-color: lighten(#FFD7D7, 5%);
+    @include background;
     padding-top: 130px;
     margin-top: 20px;
     padding-bottom: 90px;
@@ -8,7 +8,7 @@
 .login-container {
     margin: 0 auto;
     padding-bottom: 50px;
-    box-shadow: 1px 3px 15px #d1d1d1;
+    @include boxshadow ;
     width: 330px;
     border-radius: 20px;
     background-color: white;
@@ -16,7 +16,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color:  #FD2D01;
+            color:  $colour-primary;
             font-size: xx-large;
             padding-top: 40px;
             padding-bottom: 5px;
@@ -41,7 +41,7 @@
                     height: 35px;
                     margin-top: 10px;
                         &:hover{
-                            background-color: #FD2D01;
+                            background-color: $colour-primary;
                             cursor: pointer;
                         }
                 }
@@ -61,7 +61,7 @@
                     width: 140px;
                     height: 35px;
                         &:hover{
-                            background-color: #FD2D01;
+                            background-color: $colour-primary;
                         }
                         & a{
                             text-decoration: none;
@@ -79,7 +79,6 @@
     
     .login_background {
         padding-bottom: 420px;
-        padding-top: 50px;
         margin-top: 10px;
     }
     
@@ -90,7 +89,6 @@
 @media (max-width: 767px) {
 
     .login_background {
-        padding-top: 40px;
         margin-top: 10px;
     }
 

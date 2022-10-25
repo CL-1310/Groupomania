@@ -23,8 +23,9 @@ const NewPost = () => {
     const {currentUser} = useContext(userContext)
     const [token, setToken] = useState("")
     const [userId, setUserId] = useState("")
+    const [login, setLogin] = useState(false)
     let navigate = useNavigate();
-    const POST_REGEX = /^.{2,}$/
+    const POST_REGEX = /^.{2,}$/gm
     
     useEffect(() => {
         if(!localStorage.getItem("userConnected")){
@@ -50,7 +51,6 @@ const NewPost = () => {
         setValidDescription(true)
         }
         if(checkTitle === true && checkDescription === true){
-            console.log(userId);
             const formData = new FormData()
             formData.append("title",title)
             formData.append("description",description)
@@ -81,13 +81,14 @@ const NewPost = () => {
         if(!localStorage.getItem("userConnected")){
             navigate("/login");
         }
+        setLogin(true)
    
     },[navigate]);
 
     return (
         <>
             <MenuBurger/>
-            <Header/>
+            <Header login={login}/>
 
             <div className='newpost_background'>
                 <div className='newpost_container'>

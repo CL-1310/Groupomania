@@ -1,0 +1,6 @@
+@mixin boxshadow {
+    box-shadow: 7px 7px 10px 6px #d1d1d1;
+}
+@mixin background {
+    background-color: lighten($colour-secondary, 5%);
+}

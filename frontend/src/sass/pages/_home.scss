@@ -1,10 +1,10 @@
 .home_page{
-    background-color: lighten(#FFD7D7, 5%);
+    @include background;
         h1{
             display: flex;
             align-items: center;
             justify-content: center;
-            color:  #FD2D01;
+            color:  $colour-primary;
             font-size: xx-large;
             padding-top: 110px;
             padding-bottom: 20px;
@@ -16,11 +16,12 @@
             justify-content: center;
             gap: 50px;
             padding-bottom: 90px;
+            animation: posts-slide 3000ms;
                 .home_one-post{
                     text-decoration: none;
                     color: black;
                     background-color: white;
-                    box-shadow: 7px 7px 10px 6px #d1d1d1;
+                    @include boxshadow;
                     border-radius: 15px;
                     width: 760px;
                     height: 590px;
@@ -39,21 +40,35 @@
                                         margin-right: 6px;
                                     }
                             }
-                            h5 {
+                            h3 {
                                 padding-bottom: 30px;
-                                border: 3px dotted #FFD7D7;
+                                border: 3px dotted $colour-secondary;
                                 border-top: none;
                                 border-left: none;
                                 border-right: none;
                                 width: 720px;
                             }
                             h2 {
-                                color: darken(#FFD7D7, 15%);
+                                color: darken($colour-secondary, 15%);
                                 padding-top: 10px;
                             }
                             p {
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                word-break: break-word;
                                 font-size: medium;
                                 padding-top: 10px;
+                                padding-right: 90px;
+                                    
+                            }
+                            .home_more {
+                                color: black;
+                                font-size: small;
+                                text-decoration: underline;
+                                    &:hover{
+                                        color: darken($colour-secondary, 20%);
+                                    }
                             }
                             img {
                                 display: block;
@@ -67,8 +82,8 @@
                             }
                         }
                         button {
-                            background-color: #FFD7D7;
-                            color: darken(#4E5166 , 15%);
+                            background-color: $colour-secondary;
+                            color: darken($colour-tertiary , 15%);
                             border-radius: 20px; 
                         }
                         .home_editerase-buttons {
@@ -78,13 +93,13 @@
                                     width: 80px;
                                     height: 30px;
                                         &:hover{
-                                            background-color: darken(#FFD7D7, 5%);
+                                            background-color: darken($colour-secondary, 5%);
                                             cursor: pointer;
                                         }
                                 }
                                 a {
                                     text-decoration: none;
-                                    color: darken(#4E5166 , 15%);
+                                    color: darken($colour-tertiary , 15%);
                                 }
                         }
                         .home_react-buttons {
@@ -113,11 +128,22 @@
                     z-index: 500;
                         i {
                             font-size: xx-large;
-                            color: #FD2D01;
+                            color: $colour-primary;
                         }
                 }
     }
 
+}
+
+@keyframes posts-slide {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+    }
 }
 
 // Responsive tablettes
@@ -125,9 +151,6 @@
 @media screen and (min-width: 768px) and (max-width: 991px) {
     
     .home_page{
-        h1{
-            padding-top: 40px;
-        }
         .home_posts-container{
             .home_one-post{
                 width: 670px;
@@ -146,7 +169,6 @@
     .home_page{
         h1{
             font-size: x-large;
-            padding-top: 40px;
         }
         .home_posts-container{
             .home_one-post{
@@ -165,7 +187,7 @@
                                     margin-right: 6px;
                                 }
                         }
-                        h5 {
+                        h3 {
                             padding-bottom: 30px;
                             width: 300px;
                             font-size: medium;
@@ -194,7 +216,5 @@
             }
 
         }
-    
-    }
-
+   }
 }

@@ -1,24 +1,37 @@
 .viewpost_page{
-    background-color: lighten(#FFD7D7, 5%);
+    @include background;
     padding-bottom: 100px;
         h1{
             display: flex;
             align-items: center;
             justify-content: center;
-            color:  #FD2D01;
+            color:  $colour-primary;
             font-size: xx-large;
             padding-top: 110px;
             padding-bottom: 20px;
             margin-top: 20px;
         }
+        .scroll-to-top{
+            width: 40px;
+            height: 40px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            opacity: 1;
+            z-index: 500;
+                i {
+                    font-size: xx-large;
+                    color: #FD2D01;
+                }
+        }
         .viewpost_container{
             display: flex;
             flex-direction: column;
-            padding-bottom: 90px;
+            padding-bottom: 50px;
             text-decoration: none;
             color: black;
             background-color: white;
-            box-shadow: 7px 7px 10px 6px #d1d1d1;
+            @include boxshadow;
             border-radius: 15px;
             width: 750px;
             height: auto;
@@ -35,21 +48,23 @@
                             margin-right: 6px;
                         }
                 }
-                h5 {
+                h3 {
                     padding-bottom: 30px;
-                    border: 3px dotted #FFD7D7;
+                    border: 3px dotted $colour-secondary;
                     border-top: none;
                     border-left: none;
                     border-right: none;
                     width: 720px;
                 }
                 h2 {
-                    color: darken(#FFD7D7, 15%);
+                    color: darken($colour-secondary, 15%);
                     padding-top: 10px;
                 }
                 p {
+                    white-space: break-spaces;
                     font-size: medium;
                     padding-top: 10px;
+                    padding-right: 150px;
                 }
                 img {
                     display: block;
@@ -59,53 +74,23 @@
                     width: auto;
                     height: 250px;
                     padding-top: 25px;
-                    padding-bottom: 30px;
+                    padding-bottom: 70px;
                 }
-                button {
-                    background-color: #FFD7D7;
-                    color: darken(#4E5166 , 15%);
-                    border-radius: 20px; 
-                }
-                .viewpost_editerase-buttons {
-                    font-size: small;
-                    margin-top: 10px;
-                        button {
-                            width: 80px;
-                            height: 30px;
-                                &:hover{
-                                    background-color: darken(#FFD7D7, 5%);
-                                    cursor: pointer;
-                                }
-                        }
-                        a {
-                            text-decoration: none;
-                            color: darken(#4E5166 , 15%);
-                        }
-                }
-                .viewpost_react-buttons {
-                    margin-top: -40px;
+                .viewpost_button {
                     display: flex;
-                    align-items: flex-end;
-                    justify-content: end;
-                    margin-right: 40px;
-                    margin-bottom: -60px;
-                    gap: 15px;
+                    justify-content: center;
                         button {
-                            font-size: large;
-                            width: 40px;
-                            height: 40px;
-                        }
-                        .scroll-to-top{
-                            width: 40px;
-                            height: 40px;
-                            position: fixed;
-                            bottom: 20px;
-                            right: 20px;
-                            opacity: 1;
-                            z-index: 500;
-                                i {
-                                    font-size: xx-large;
-                                    color: #FD2D01;
+                            background-color: black;
+                            border-radius: 20px;
+                            width: 140px;
+                            height: 35px;
+                                &:hover{
+                                    background-color: $colour-primary;
+                                }
+                                & a{
+                                    text-decoration: none;
+                                    font-size: large;
+                                    color: white;
                                 }
                         }
                 }
@@ -122,17 +107,18 @@
     
     .viewpost_page{
         h1{
-            font-size: x-large;
-            padding-top: 40px;
             margin-top: 10px;
         }
         .viewpost_container{
             width: 670px;
+                p {
+                    padding-right: 30px;
+                }
                 img {
                     width: auto;
                     height: 250px;
                     padding-top: 30px;
-                }     
+                }  
         }
 
     }
@@ -146,7 +132,6 @@
     .viewpost_page{
         h1{
             font-size: x-large;
-            padding-top: 40px;
             margin-top: 10px;
         }
         .viewpost_container{
@@ -157,7 +142,7 @@
                     padding-right: 15px;
                     padding-bottom: 10px;
                 }
-                h5 {
+                h3 {
                     width: 300px;
                     font-size: medium;
                 }
@@ -169,6 +154,7 @@
                 p {
                     font-size: medium;
                     padding-top: 0px;
+                    padding-right: 15px;
                 }
                 img {
                     padding-bottom: 25px;
