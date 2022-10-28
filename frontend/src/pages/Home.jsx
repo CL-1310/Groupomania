@@ -15,6 +15,7 @@ const AllPosts = () => {
 
     const [posts, setPosts] = useState([])
     const [userId, setUserId] = useState("")
+    const [isAdmin, setIsAdmin] = useState(false)
     const [like, setLike] = useState(false)
     const [dislike, setDislike] = useState(false)
     const [token, setToken] = useState(localStorage.getItem("userToken"))
@@ -30,9 +31,28 @@ const AllPosts = () => {
         setUserId(localStorage.getItem("userConnected"))
         setToken(localStorage.getItem("userToken"))
         setLogin(true)
+        console.log(userId)
+        getUser()
+        console.log(isAdmin)
         getPosts()
-    },[navigate]);
+    },[navigate, userId, isAdmin]);
 
+    const getUser = () => {
+        axios({
+            method:"get",
+            url:(`http://localhost:4000/api/auth/user/${userId}`),
+            credentials:true,
+            headers:{"Authorization":`Bearer ${token}`}
+        })
+            .then(response=>{
+                setIsAdmin(response.data.isAdmin)
+            }).catch(err=>{
+            if (!err?.response) {
+                setErrMsg("No Server Response");
+            }
+
+        })
+    }
 
     const getPosts = () => {
         axios({
@@ -59,7 +79,7 @@ const AllPosts = () => {
             credentials:true,
             headers:{"Authorization":`Bearer ${token}`}
         })
-        .then(reponse=>{
+        .then(reponse => {
             getPosts()
 
         }).catch(err=>{
@@ -156,31 +176,43 @@ const AllPosts = () => {
                                             
                                             <h2>{post.title}</h2>
                                             
-                                            <p> {post.description} </p>
-                                            
+                                            <p> {post.description}</p>
+
                                             <span className='home_more'> Afficher le post complet </span>
                                             
                                             <img src={post.imageUrl} alt="" />  
 
                                         </Link>
 
-                                        <div className='home_editerase-buttons'>
 
-                                            <button>
-                                                <Link to={"/edit-post/"+ post._id}>Modifier</Link>
-                                            </button>
+                                        { (isAdmin === true || post.userId === userId ) && (
+                                            <div className='home_editerase-buttons'>
 
-                                            <button onClick={() => erasePost(post._id)}>Supprimer</button>
+                                                <button>
+                                                    <Link to={"/edit-post/"+ post._id}>Modifier</Link>
+                                                </button>
 
-                                        </div>
+                                                <button onClick={() => erasePost(post._id)}>Supprimer</button>
+
+                                            </div>
+                                        )}
+
                                         <div className='home_react-buttons'>
 
                                             <button onClick={() => Like(post._id)} className='like-button'>
-                                                <i className='bi bi-hand-thumbs-up-fill'></i>
+                                                {post.usersLiked.includes(userId) === true ? (
+                                                    <i className='bi bi-hand-thumbs-up'></i>
+                                                ) : (
+                                                    <i className='bi bi-hand-thumbs-up-fill'></i>
+                                                )}
                                             </button>
 
                                             <button onClick={() => Dislike(post._id)} className='dislike-button'>
-                                                <i className='bi bi-hand-thumbs-down-fill'></i>
+                                                {post.usersDisliked.includes(userId) === true ? (
+                                                    <i className='bi bi-hand-thumbs-down'></i>
+                                                ) : (
+                                                    <i className='bi bi-hand-thumbs-down-fill'></i>
+                                                )}
                                             </button>
                                             
                                         </div>
