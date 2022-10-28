@@ -84,7 +84,8 @@ const EditPost = () => {
             setValidDescription(true)
         }
 
-        if(checkTitle === true && checkDescription === true){
+        console.log(checkTitle === true && checkDescription === true)
+        if(title !== "" && description !== ""){
             const formData = new FormData()
             formData.append("title",title)
             formData.append("description",description)

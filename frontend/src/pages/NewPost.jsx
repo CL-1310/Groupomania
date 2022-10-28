@@ -42,15 +42,22 @@ const NewPost = () => {
     }
     const postSubmit = (e) => {
         e.preventDefault();
-        const checkTitle  = POST_REGEX.test(title);
-        if(checkTitle === true){
-        setValidTitle(true)
+        console.log(title)
+        // const checkTitle  = POST_REGEX.test(title);
+        // console.log(checkTitle)
+        if(POST_REGEX.test(title) === true){
+            setValidTitle(true)
         }
-        const checkDescription = POST_REGEX.test(description)
-        if(checkDescription === true){
-        setValidDescription(true)
+        console.log(description)
+        // const checkDescription = POST_REGEX.test(description)
+        // console.log(checkDescription)
+        if(POST_REGEX.test(description) === true){
+            setValidDescription(true)
         }
-        if(checkTitle === true && checkDescription === true){
+        console.log(validTitle === true && validDescription === true)
+        // if(validTitle === true && validDescription === true){
+        if(title !== "" && description !== ""){
+            console.log('envoi post')
             const formData = new FormData()
             formData.append("title",title)
             formData.append("description",description)

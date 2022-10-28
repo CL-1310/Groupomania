@@ -23,24 +23,10 @@ const AllPosts = () => {
     const [login, setLogin] = useState(false)
     let navigate = useNavigate();
 
-
-    useEffect(() => {
-        if(!localStorage.getItem("userConnected")){
-            navigate("/login");
-        }
-        setUserId(localStorage.getItem("userConnected"))
-        setToken(localStorage.getItem("userToken"))
-        setLogin(true)
-        console.log(userId)
-        getUser()
-        console.log(isAdmin)
-        getPosts()
-    },[navigate, userId, isAdmin]);
-
     const getUser = () => {
         axios({
             method:"get",
-            url:(`http://localhost:4000/api/auth/user/${userId}`),
+            url:(`http://localhost:4000/api/auth/user/${localStorage.getItem("userConnected")}`),
             credentials:true,
             headers:{"Authorization":`Bearer ${token}`}
         })
@@ -61,16 +47,27 @@ const AllPosts = () => {
             credentials:true,
             headers:{"Authorization":`Bearer ${token}`}
         })
-        .then(response=>{
-            setPosts(response.data)
+            .then(response=>{
+                setPosts(response.data)
 
-        }).catch(err=>{
+            }).catch(err=>{
             if (!err?.response) {
                 setErrMsg("No Server Response");
             }
 
         })
     }
+
+    useEffect(() => {
+        if(!localStorage.getItem("userConnected")){
+            navigate("/login");
+        }
+        setUserId(localStorage.getItem("userConnected"))
+        setToken(localStorage.getItem("userToken"))
+        setLogin(true)
+        getUser()
+        getPosts()
+    },[navigate, userId, isAdmin]);
 
     const erasePost = (postId) => {
         axios({
@@ -79,17 +76,17 @@ const AllPosts = () => {
             credentials:true,
             headers:{"Authorization":`Bearer ${token}`}
         })
-        .then(reponse => {
-            getPosts()
+            .then(reponse => {
+                getPosts()
 
-        }).catch(err=>{
+            }).catch(err=>{
             if (!err?.response) {
                 setErrMsg("No Server Response");
             } else if (err.response?.status === 401){
                 setErrMsg("Erreur 401");
             }
         })
-        
+
     }
 
     const Like = (postId) => {
@@ -101,17 +98,17 @@ const AllPosts = () => {
             headers:{"Authorization":`Bearer ${token}`}
 
         })
-        .then(()=>{
-            setLike(true);
-            navigate("/"); 
-        }).catch(err=>{
-            if (!err?.response) {
-                setErrMsg("No Server Response");
-            } else if (err.response?.status === 401){
-                navigate("/login");
+            .then(()=>{
+                setLike(true);
+                navigate("/");
+            }).catch(err=>{
+                if (!err?.response) {
+                    setErrMsg("No Server Response");
+                } else if (err.response?.status === 401){
+                    navigate("/login");
+                }
             }
-        }
-    )}
+        )}
 
     const Dislike = (postId) => {
         const dislikedStatus = -1
@@ -122,17 +119,17 @@ const AllPosts = () => {
             headers:{"Authorization":`Bearer ${token}`}
 
         })
-        .then(()=>{
-            setDislike(true);
-            navigate("/"); 
-        }).catch(err=>{
-            if (!err?.response) {
-                setErrMsg("No Server Response");
-            } else if (err.response?.status === 401){
-                navigate("/login");
+            .then(()=>{
+                setDislike(true);
+                navigate("/");
+            }).catch(err=>{
+                if (!err?.response) {
+                    setErrMsg("No Server Response");
+                } else if (err.response?.status === 401){
+                    navigate("/login");
+                }
             }
-        }
-    )}
+        )}
 
 
     return (
@@ -171,16 +168,16 @@ const AllPosts = () => {
                                         <Link to={"/post/"+ post._id} className='home_one-post-link' >
 
                                             <div className='home_postdate'> <i className='bi bi-clock'></i> Posté le {dayjs(post.createdAt).format('DD/MM/YYYY à HH:mm:ss')}</div>
-                                            
+
                                             <h3> Posté par {post.userId}</h3>
-                                            
+
                                             <h2>{post.title}</h2>
-                                            
+
                                             <p> {post.description}</p>
 
                                             <span className='home_more'> Afficher le post complet </span>
-                                            
-                                            <img src={post.imageUrl} alt="" />  
+
+                                            <img src={post.imageUrl} alt="" />
 
                                         </Link>
 
@@ -201,27 +198,27 @@ const AllPosts = () => {
 
                                             <button onClick={() => Like(post._id)} className='like-button'>
                                                 {post.usersLiked.includes(userId) === true ? (
-                                                    <i className='bi bi-hand-thumbs-up'></i>
-                                                ) : (
                                                     <i className='bi bi-hand-thumbs-up-fill'></i>
+                                                ) : (
+                                                    <i className='bi bi-hand-thumbs-up'></i>
                                                 )}
                                             </button>
 
                                             <button onClick={() => Dislike(post._id)} className='dislike-button'>
                                                 {post.usersDisliked.includes(userId) === true ? (
-                                                    <i className='bi bi-hand-thumbs-down'></i>
-                                                ) : (
                                                     <i className='bi bi-hand-thumbs-down-fill'></i>
+                                                ) : (
+                                                    <i className='bi bi-hand-thumbs-down'></i>
                                                 )}
                                             </button>
-                                            
+
                                         </div>
                                     </div>
                                 )
-                                
-                            } 
+
+                            }
                             <div>
-                                
+
                             </div>
                         </div>
                     </div>

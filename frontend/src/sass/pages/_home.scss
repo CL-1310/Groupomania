@@ -112,6 +112,9 @@
                                     font-size: large;
                                     width: 40px;
                                     height: 40px;
+                                        &:hover{
+                                            cursor: pointer;
+                                        }
                                 }
                         }
                         
